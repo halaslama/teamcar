@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEAM CAR - Location de Voitures</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <style>
+     #bookingModal .form-group label {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  #bookingModal .form-control {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+  #bookingModal .form-row {
+    margin-bottom: 10px;
+  }
+    body {
+      background-color: #000;
+      color: white;
+    }
+   .hero {
+      background: url('grande-photo-banniere.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 120px 0;
+      text-shadow: 1px 1px 4px black;
+    }
+    .section-title {
+      margin-top: 60px;
+    }
+    .navbar-brand img {
+      height: 100px;
+    }
+    .main-banner {
+      
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    .main-banner img.banner-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: filter 0.5s ease;
+    }
+    .main-banner img.banner-image:hover {
+      filter: brightness(1.3) drop-shadow(0 0 20px #fff);
+    }
+    .main-banner .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .card {
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 1px solid #444;
+ border-radius: 1%;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.card-img-top {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.card-icons {
+  max-width: 100px;
+                        
+        }
+
+
+      
+        .carousel-container {
+          margin: 12rem 12rem;
+          height: 40rem;
+      width: 65rem;
+      background-size: 100% 100%;
+      overflow: hidden;
+       box-shadow: 0 0 20px 10px rgb(239, 216, 2);
+   animation: slider 15s linear infinite;
+   display: block; margin: 0 auto;
+   border-radius: 1%;
+   
+   
+   
+     
+    }
+    @keyframes slider{
+      0%{background-image: url(mdiq2.jpg);}
+      25%{background-image: url(tetouan1.jpg);}
+      50%{background-image: url(tanger1.jpg);}
+      75%{background-image: url(chefchaoun.jpg);}
+      100%{background-image: url(tanger3.jpg);}
+
+    }
+
+    .iframe{
+      border-radius: 1%;
+    }
+
+    .btn.btn-primary {
+      background: rgb(239, 216, 2);
+       border: 1px solid #444;
+    }
+
+    .btn.btn-primary :hover {
+     transform: scale(1.05);
+    }
+    
+
+
+
+
+.language-switcher {
+  margin-left: 15px;
+}
+
+.btn.btn-success.btn-lg:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+
+   
+  </style>
+</head>
+<body>
+
+   <!-- Navbar avec logo -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="new logo.png" alt="TEAM CAR Logo">
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#services" data-i18n="services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#voitures" data-i18n="cars">Nos Voitures</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="contact">Contact</a></li>
+          <li class="nav-item language-switcher">
+            <select class="form-select form-select-sm" onchange="changeLanguage(this.value)">
+              <option value="fr" selected> Français</option>
+              <option value="en"> English</option>
+              <option value="es"> Español</option>
+              <option value="ar"> العربية</option>
+              <option value="it"> Italian</option>
+              <option value="de">Deutsch</option>
+             
+             
+            </select>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero/Bannière avec grande photo -->
+  <div class="main-banner">
+    <img src="banner.jpeg" alt="Banner Image" class="banner-image">
+    <div class="banner-text">
+      <h1 class="display-4" data-i18n="main_title">Location de voitures à Martil & Tétouan</h1>
+      <p class="lead" data-i18n="main_subtitle">Confort, style et fiabilité à votre service avec livraison gratuite à l'aéroport ✈️</p>
+      <a href="https://wa.me/212723930064" class="btn btn-success btn-lg" data-i18n="reserve">Réserver sur WhatsApp</a>
+    </div>
+  </div>
+
+
+   <!-- Car Fleet Section -->
+  <section id="voitures" class="container section-title">
+    <h2 class="text-center" data-i18n="cars">Nos Voitures</h2>
+    <div class="row mt-4 g-4" id="carCards">
+      <a href="https://wa.me/212723930064" class="btn btn-success btn-lg" data-i18n="reserve">Réserver</a>
+      <!-- Les cartes de voitures seront injectées ici dynamiquement -->
+       
+    </div>
+  
+  </section>
+
+  <!-- Modal pour agrandir l'image -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img src="" id="modalImage" class="img-fluid w-100" alt="Aperçu de la voiture">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2 style="text-align: center;">Destination</h2>
+    <p style="text-align: center;">TEAM CAR – Prenez la route à votre manière. Récupérez ici, rendez là où vous voulez.</p>
+    <br>
+
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-item"><img src="tanger3.jpg" alt="Image 1"></div>
+      <div class="carousel-item"><img src="chefchaoun.jpg" alt="Image 2"></div>
+      <div class="carousel-item"><img src="tetouan1.jpg"alt="Image 3"></div>
+      <div class="carousel-item"><img src="mdiq2.jpg" alt="Image 4"></div>
+      <div class="carousel-item"><img src="tanger1.jpg" alt="Image 5"></div>
+    </div>
+  </div>
+  </section>
+  <br>
+
+  <section id="contact" class="padding-section second-section">
+    <div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="text-center">
+                    <h2 class="contact-title">Contactez Nous</h2>
+
+                </div>
+            </div>
+
+            <div class="container">
+              <div class="row justify-content-center g-4">
+                    <!-- Card 1 -->
+
+                    <div class="col-md-3">
+                      <div class="item-method text-center mb-4">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=teamcarmt@gmail.com&su=Oggetto&body=Scrivi%20qui%20il%20tuo%20messaggio
+                        " target="_blank" rel="noopener noreferrer">
+                          <img src="email.png" class="card-icons" alt="Email">
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-md-3">
+                        <div class="item-method text-center mb-4">
+                          <a target="_blank" href="https://www.instagram.com/teamcarmt/"> <img src="instagram.png" class="card-icons" alt="instagram"></a>
+                            
+                          
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    
+                      
+                        <div class="col-md-3">
+                          <div class="item-method text-center mb-4">
+                            <a target="_blank" href="https://wa.me/212723930064">
+                              <img src="whatsapp.png" class="card-icons" alt="...">
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+
+
+  <!-- Map Section -->
+<section id="map" class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-4" style="color: white;">📍 Localisation</h3>
+    <div class="ratio ratio-16x9">
+     <iframe 
+        src="https://www.google.com/maps?q=N%207,%20kaysaryat%20Rive%20D'or,%20Av.%20Abderahman%20III,%20Martil&output=embed" 
+        width="100%" height="400" style="border:0; border-radius: 1%;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p>🚘 TEAM CAR | Location 🇲🇦
+      📍 N 7, kaysaryat Rive D'or, Av. Abderahman III, Martil
+      Email: teamcarmt@gmail.com
+      Instagram :@teamcarmt
+      </p>
+    <p class="mb-0">&copy; 2025 TEAM CAR | Tous droits réservés</p>
+  </footer>
+</body>
+
+
+  <script>
+    
+    function openModal(src) {
+      const modalImg = document.getElementById('modalImage');
+      modalImg.src = src;
+      const myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+      myModal.show();
+    }
+
+    const translations = {
+      fr: {
+        services: "Services",
+        cars: "Nos Voitures",
+        contact: "Contact",
+        main_title: "Location de voitures à Martil & Tétouan",
+        main_subtitle: "Confort, style et fiabilité à votre service avec livraison gratuite à l'aéroport ✈️",
+        reserve: "Réserver sur WhatsApp",
+        carsData: [
+          { img: "scala.webp", title: "Skoda Scala", text: "Moderne, économique et idéale pour la ville ou la route." },
+          { img: "crossland.png", title: "Opel Crossland", text: "Moderne, économique et idéale pour la ville ou la route." },
+          { img: "nissan.avif", title: "Nissan Micra", text: "Moderne, économique et idéale pour la ville ou la route." },
+          { img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Moderne, économique et idéale pour la ville ou la route." },
+          { img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Moderne, économique et idéale pour la ville ou la route." },
+          { img: "peugeot-208.png", title: "Peugeot-208", text: "Moderne, économique et idéale pour la ville ou la route." },
+          
+        ]
+      },
+      en: {
+        services: "Services",
+        cars: "Our Cars",
+        contact: "Contact",
+        main_title: "Car rental in Martil & Tetouan",
+        main_subtitle: "Comfort, style and reliability with free airport delivery ✈️",
+        reserve: "Book on WhatsApp",
+        carsData: [
+          { img: "scala.webp", title: "Skoda Scala", text: "Modern, economical and ideal for city or road." },
+          { img: "crossland.png", title: "Opel Crossland", text: "Modern, economical and ideal for city or road." },
+          { img: "nissan.avif", title: "Nissan Micra", text: "Modern, economical and ideal for city or road." },
+          { img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Modern, economical and ideal for city or road." },
+          { img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Modern, economical and ideal for city or road." },
+          { img: "peugeot-208.png", title: "Peugeot-208", text: "Modern, economical and ideal for city or road." }
+          
+        ]
+      },
+      es: {
+        services: "Servicios",
+        cars: "Nuestros Coches",
+        contact: "Contacto",
+        main_title: "Alquiler de coches en Martil y Tetuán",
+        main_subtitle: "Comodidad, estilo y fiabilidad con entrega gratuita en el aeropuerto ✈️",
+        reserve: "Reservar por WhatsApp",
+        carsData: [
+          { img: "scala.webp", title: "Skoda Scala", text: "Moderna, económica e ideal para ciudad o carretera." },
+          { img: "crossland.png", title: "Opel Crossland", text: "Moderna, económica e ideal para ciudad o carretera." },
+          { img: "nissan.avif", title: "Nissan Micra", text: "Moderna, económica e ideal para ciudad o carretera." },
+          { img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Moderna, económica e ideal para ciudad o carretera." },
+          { img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Moderna, económica e ideal para ciudad o carretera." },
+          { img: "peugeot-208.png", title: "Peugeot-208", text: "Moderna, económica e ideal para ciudad o carretera." }
+          
+        ]
+      },
+      ar: {
+        services: "الخدمات",
+        cars: "السيارات",
+        contact: "اتصال",
+        main_title: "تأجير سيارات في مرتيل وتطوان",
+        main_subtitle: "راحة وأناقة وموثوقية مع توصيل مجاني إلى المطار ✈️",
+        reserve: "احجز عبر واتساب",
+        carsData: [
+          { img: "scala.webp", title: "سكودا سكالا", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
+          { img: "crossland.png", title: "أوبل كروس لاند", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
+          { img: "nissan.avif", title: "نيسان ميكرا", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
+          { img: "OPEL CORSA.jpg", title: "أوبل كورسا", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
+          { img: "Opel-Corsa1.webp", title: "أوبل كورسا", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
+          { img: "peugeot-208.png", title: "بيجو 208", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." }
+        ]
+      },
+      de:{
+  services: "Dienstleistungen",
+  cars: "Unsere Autos",
+  contact: "Kontakt",
+  main_title: "Autovermietung in Martil & Tétouan",
+  main_subtitle: "Komfort, Stil und Zuverlässigkeit mit kostenfreier Lieferung zum Flughafen ✈️",
+  reserve: "Auf WhatsApp reservieren",
+  carsData: [
+    { img: "scala.webp", title: "Skoda Scala", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
+    { img: "crossland.png", title: "Opel Crossland", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
+    { img: "nissan.avif", title: "Nissan Micra", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
+    { img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
+    { img: "Opel-Corsa1.webp", title: "Opel Corsa", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
+    { img: "peugeot-208.png", title: "Peugeot 208", text: "Modern, sparsam und ideal für Stadt oder Landstraße." }
+  ]
+}
+
+    };
+
+    function changeLanguage(lang) {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+
+      const carSection = document.getElementById("carCards");
+carSection.innerHTML = "";  // Pulisce la sezione dove vengono aggiunte le auto
+translations[lang].carsData.forEach(car => {
+  carSection.innerHTML += `
+    <div class="col-md-4">
+      <div class="card">
+        <img src="${car.img}" class="card-img-top" alt="${car.title}" onclick="openModal(this.src)">
+        <div class="card-body">
+          <h5 class="card-title">${car.title}</h5>
+          <p class="card-text">${car.text}</p>
+           <!-- Sezione icone -->
+        <div class="d-flex justify-content-around text-primary my-3" style="font-size: 1.1rem;">
+          <div><i class="fas fa-user"></i> 5</div>
+          <div><i class="fas fa-suitcase"></i> 2</div>
+          <div><i class="fas fa-door-open"></i> 4</div>
+          <div><i class="fas fa-snowflake"></i> A/C</div>
+          <div><i class="fas fa-cogs"></i> Man.</div>
+          <div><i class=""></i> Diesel</div>
+
+        </div>
+          <button class="btn btn-primary" onclick="openBookingModal('${car.title}')">Réserver Maintenant</button>
+        </div>
+      </div>
+    </div>    
+  `;
+});
+const track = document.getElementById('carouselTrack');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % totalItems;
+      const offset = index * 200; // 200 = altezza immagine
+      track.style.transform = `translateY(-${offset}px)`;
+    }, 3000); // cambia ogni 3 secondi
+    }
+//DOM
+    window.addEventListener("DOMContentLoaded", () => {
+      changeLanguage("fr");
+    });
+    function openBookingModal(carName) {
+  selectedCarName = carName;
+  $('#bookingModal').modal('show'); // se usi Bootstrap
+  const formHtml = `
+  <div id="bookingModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form id="reservationForm">
+        <div class="modal-header">
+          <h5 class="modal-title">Prenotazione</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi">
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- Nome -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" required placeholder="Nome completo">
+          </div>
+
+          <!-- Luogo di Partenza -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="departurePlace" required placeholder="Luogo di partenza">
+          </div>
+
+          <!-- Luogo di Ritorno -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="returnPlace" required placeholder="Luogo di ritorno">
+          </div>
+
+          <!-- Data e Ora di Partenza -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="date" class="form-control" id="departureDate" required placeholder="Data partenza">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="time" class="form-control" id="departureTime" required placeholder="Ora partenza">
+            </div>
+          </div>
+
+          <!-- Data e Ora di Ritorno -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="date" class="form-control" id="returnDate" required placeholder="Data ritorno">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="time" class="form-control" id="returnTime" required placeholder="Ora ritorno">
+            </div>
+          </div>
+
+          <!-- Contatto -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="contact" required placeholder="Contatto telfono o email">
+          </div>
+
+          <!-- Messaggio -->
+          <div class="form-group">
+            <textarea class="form-control" id="message" rows="2" placeholder="Messaggio facoltativo "></textarea>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success btn-block">Invia su WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+  ✅ Prenotazione inviata con successo!
+</div>
+
+  `;
+
+  // Aggiungi il form al corpo della pagina
+  document.body.innerHTML += formHtml;
+
+  // Mostra il modulo (assicurati di usare Bootstrap o un'altra libreria per gestire le modali)
+  $('#bookingModal').modal('show');
+
+  // Gestisci l'invio del modulo
+document.getElementById('reservationForm').onsubmit = function(event) {
+  event.preventDefault();  // Evita il comportamento predefinito
+  submitBookingForm(this);  // Passa il form come riferimento
+};
+
+function submitBookingForm(form) {
+  const name = document.getElementById('name').value;
+  const departurePlace = document.getElementById('departurePlace').value;
+  const returnPlace = document.getElementById('returnPlace').value;
+  const departureDate = document.getElementById('departureDate').value;
+  const departureTime = document.getElementById('departureTime').value;
+  const returnDate = document.getElementById('returnDate').value;
+  const returnTime = document.getElementById('returnTime').value;
+  const contact = document.getElementById('contact').value;
+  const message = document.getElementById('message').value;
+
+  const fullMessage = `
+🚗 *Prenotazione Cliente* 
+🚗 *Auto:* ${selectedCarName}
+👤 Nome: ${name}
+📍 Partenza da: ${departurePlace}
+➡️ Ritorno a: ${returnPlace}
+📅 Partenza: ${departureDate} alle ${departureTime}
+📅 Arrivo: ${returnDate} alle ${returnTime}
+📞 Contatto: ${contact}
+📝 Messaggio: ${message || "Nessun messaggio aggiuntivo"}
+`;
+
+  const whatsappUrl = `https://wa.me/212723930064?text=${encodeURIComponent(fullMessage)}`;
+  window.open(whatsappUrl, '_blank');
+
+  // ✅ Mostra messaggio di conferma
+  const successBox = document.getElementById("successMessage");
+  if (successBox) successBox.style.display = "block";
+
+  // ✅ Chiudi il modal dopo 1 secondo
+  setTimeout(() => {
+    const modalElement = document.getElementById('bookingModal');
+    const modalInstance = bootstrap.Modal.getInstance(modalElement);
+    if (modalInstance) modalInstance.hide();
+
+    // Nascondi messaggio dopo 3 secondi
+    setTimeout(() => {
+      if (successBox) successBox.style.display = "none";
+    }, 3000);
+  }, 1000);
+
+  // ✅ Resetta il modulo
+  form.reset();
+}}
+
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
