@@ -17,34 +17,84 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <style>
-     #bookingModal .form-group label {
-    font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 4px;
-  }
-  #bookingModal .form-control {
-    font-size: 14px;
-    padding: 6px 8px;
-  }
-  #bookingModal .form-row {
-    margin-bottom: 10px;
-  }
-    body {
+   
+
+  /* Formule */
+.neumorphic {
+  background: #e0e5ec;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px #74777b;
+  padding: 30px;
+  display: block; margin: 0 auto;
+  box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
+}
+
+/* Input, Textarea e Select  (fori) */
+.neumorphic-input {
+  background: #e0e5ec;
+  border: none;
+  border-radius: 12px;
+  box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+/* Dentro */
+.neumorphic-input:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 8px  rgb(107, 107, 105), inset -4px -4px 8px #ffffff;
+}
+
+/* Bottone */
+.btn.btn-success {
+  background: #e0e5ec;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  
+}
+
+.neumorphic-button:hover {
+  box-shadow: 4px 4px 10px #a3b1c5, -4px -4px 10px #ffffff;
+  transform: scale(1.05);
+}
+
+.neumorphic-button:active {
+  box-shadow: inset 4px 4px 8px #a3b1c5, inset -4px -4px 8px #ffffff;
+}
+
+
+
+   
+body {
       background-color: #000;
       color: white;
     }
+
    .hero {
       background: url('grande-photo-banniere.jpg') no-repeat center center/cover;
       color: white;
       padding: 120px 0;
       text-shadow: 1px 1px 4px black;
     }
+/* btn lingue */
+    .btn-outline-light {
+    color: #f8f9fa;
+    border-color: #343a40;
+}
     .section-title {
       margin-top: 60px;
     }
     .navbar-brand img {
       height: 100px;
     }
+    
     .main-banner {
       
       position: relative;
@@ -93,9 +143,26 @@
 }
 
 .card-icons {
-  max-width: 100px;
-                        
+  max-width: 100px;                    
         }
+
+       
+        
+        .btn-reserve {
+  background-color:#343a40;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.btn-reserve:hover {
+  background-color: rgb(155, 155, 150);
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgb(155, 155, 151);
+}
 
 
       
@@ -109,9 +176,6 @@
    animation: slider 15s linear infinite;
    display: block; margin: 0 auto;
    border-radius: 1%;
-   
-   
-   
      
     }
     @keyframes slider{
@@ -126,15 +190,6 @@
     .iframe{
       border-radius: 1%;
     }
-
-    .btn.btn-primary {
-      background: rgb(239, 216, 2);
-       border: 1px solid #444;
-    }
-
-    .btn.btn-primary :hover {
-     transform: scale(1.05);
-    }
     
 
 
@@ -147,16 +202,48 @@
 .btn.btn-success.btn-lg:hover {
   transform: translateY(-5px);
   transition: transform 0.3s ease;
+}   
+
+.footer{
+    width: 100%;
+    height: 40px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+ }
+ .navbar-nav .nav-link {
+  color: #d4a762 !important;
+}
+
+/* colore più chiaro al passaggio del mouse (opzionale) */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #f0c987 !important; 
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
 
 
-   
   </style>
 </head>
 <body>
-
+<section>
    <!-- Navbar avec logo -->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="new logo.png" alt="TEAM CAR Logo">
@@ -171,33 +258,45 @@
           <li class="nav-item"><a class="nav-link" href="#voitures" data-i18n="cars">Nos Voitures</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="contact">Contact</a></li>
           <li class="nav-item language-switcher">
-            <select class="form-select form-select-sm" onchange="changeLanguage(this.value)">
-              <option value="fr" selected> Français</option>
-              <option value="en"> English</option>
-              <option value="es"> Español</option>
-              <option value="ar"> العربية</option>
-              <option value="it"> Italian</option>
-              <option value="de">Deutsch</option>
-             
-             
-            </select>
+            <!-- Lingua Dropdown -->
+<div class="dropdown">
+  <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center gap-2 px-3 py-1" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="FR" id="langFlag"> Fr
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('fr', this)">
+      <img src="https://flagcdn.com/w20/fr.png" width="20" height="14"> Fr</a></li>
+    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('en', this)">
+      <img src="https://flagcdn.com/w20/us.png" width="20" height="14"> En</a></li>
+    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('es', this)">
+      <img src="https://flagcdn.com/w20/es.png" width="20" height="14"> Es</a></li>
+    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('ar', this)">
+      <img src="https://flagcdn.com/w20/ma.png" width="20" height="14"> Ar</a></li>
+    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('it', this)">
+      <img src="https://flagcdn.com/w20/it.png" width="20" height="14"> It</a></li>
+    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('de', this)">
+      <img src="https://flagcdn.com/w20/de.png" width="20" height="14"> De</a></li>
+  </ul>
+</div>
+
           </li>
         </ul>
         
       </div>
     </div>
   </nav>
-
+  </section>
+<section>
   <!-- Hero/Bannière avec grande photo -->
   <div class="main-banner">
     <img src="banner.jpeg" alt="Banner Image" class="banner-image">
     <div class="banner-text">
-      <h1 class="display-4" data-i18n="main_title">Location de voitures à Martil & Tétouan</h1>
-      <p class="lead" data-i18n="main_subtitle">Confort, style et fiabilité à votre service avec livraison gratuite à l'aéroport ✈️</p>
-      <a href="https://wa.me/212723930064" class="btn btn-success btn-lg" data-i18n="reserve">Réserver sur WhatsApp</a>
+      <h1 class="display-4" data-i18n="main_title">Service de location de voitures à Martil & Tétouan</h1>
+      <p class="lead" data-i18n="main_subtitle">"Louez votre voiture en toute simplicité – Livraison aéroport gratuite incluse ✈️🌞"</p>
+      <a href="https://wa.me/212723930064" class="btn btn-success btn-lg" data-i18n="reserve">Contactez Nous</a>
     </div>
   </div>
-
+</section>
 
    <!-- Car Fleet Section -->
   <section id="voitures" class="container section-title">
@@ -222,7 +321,7 @@
   </div>
 
   <section>
-    <h2 style="text-align: center;">Destination</h2>
+    <h2 style="text-align: center;">Destinazioni</h2>
     <p style="text-align: center;">TEAM CAR – Prenez la route à votre manière. Récupérez ici, rendez là où vous voulez.</p>
     <br>
 
@@ -298,18 +397,67 @@
   </div>
 </section>
 
-  <footer class="bg-dark text-white text-center py-3">
-    <p>🚘 TEAM CAR | Location 🇲🇦
-      📍 N 7, kaysaryat Rive D'or, Av. Abderahman III, Martil
-      Email: teamcarmt@gmail.com
-      Instagram :@teamcarmt
+<a href="https://wa.me/212723930064" class="whatsapp-float" target="_blank" aria-label="Chatta su WhatsApp">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+</a>
+
+
+ <footer class="footer">
+  <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; padding: 40px; background: linear-gradient(to right, #2c2c2c, #a49b8d); color: #fff;">
+    
+    <!-- Logo + Descrizione -->
+    <div style="flex: 1; min-width: 250px;">
+      <img src="new logo.png" alt="Logo" style="max-width: 120px;">
+      <p style="margin-top: 15px; font-size: 16px;">
+       TEAM CAR , votre partenaire de confiance pour la location de voitures à Martil et Tétouan. Des voitures bien entretenues, des prix abordables, et un service client disponible 24h/24. Réservez en toute simplicité, avec livraison gratuite à l’aéroport.
       </p>
-    <p class="mb-0">&copy; 2025 TEAM CAR | Tous droits réservés</p>
-  </footer>
+    </div>
+
+    <!-- Contatti -->
+    <div style="flex: 1; min-width: 250px;">
+      <h4>Contact</h4>
+      <p><strong>Adresse :</strong>  N 7, kaysaryat Rive D'or, Av. Abderahman III, Martil, Maroc.</p>
+      <p><strong>Téléphone :</strong> +212 723-930064</p>
+      <p><strong>Instagram :</strong> @teamcarmt</p>
+      <p><strong>Email :</strong> teamcarmt@gmail.com</p>
+      <p><strong>Horaires :</strong> 24h/24 – 7j/7</p>
+    </div>
+
+    <!-- Servizi -->
+    <div style="flex: 1; min-width: 250px;">
+      <h4>Nos Services</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>Livraison gratuite à l’aéroport</li>
+        <li>Réservation facile en ligne</li>
+        <li>Assistance 24h/24</li>
+        <li>Pas de frais cachés</li>
+        <li>Voitures propres et fiables</li>
+        <li>Annulation gratuite</li>
+        <li>Tarifs compétitifs</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; background-color: #111; color: #d4a762; padding: 15px;">
+    © 2025 TEAM CAR – Tous droits réservés
+  </div>
+</footer>
+
 </body>
 
 
   <script>
+    function changeLanguage(langCode, el) {
+    const flag = el.querySelector("img").src;
+    const label = el.textContent.trim();
+
+    document.getElementById("langFlag").src = flag;
+    document.getElementById("langDropdown").innerHTML = `<img src="${flag}" width="20" height="14" class="me-2" alt="${langCode}"> ${label}`;
+
+    console.log("Lingua selezionata:", langCode);
+    // Se vuoi cambiare testi sulla pagina, lo puoi fare qui
+  }
     
     function openModal(src) {
       const modalImg = document.getElementById('modalImage');
@@ -323,18 +471,42 @@
         services: "Services",
         cars: "Nos Voitures",
         contact: "Contact",
-        main_title: "Location de voitures à Martil & Tétouan",
-        main_subtitle: "Confort, style et fiabilité à votre service avec livraison gratuite à l'aéroport ✈️",
-        reserve: "Réserver sur WhatsApp",
+        main_title: "Service de location de voitures à Martil & Tétouan",
+        main_subtitle: "Louez votre voiture en toute simplicité – Livraison aéroport gratuite incluse ✈️🌞",
+        reserve: "Contactez Nous",
         carsData: [
-          { img: "scala.webp", title: "Skoda Scala", text: "Moderne, économique et idéale pour la ville ou la route." },
-          { img: "crossland.png", title: "Opel Crossland", text: "Moderne, économique et idéale pour la ville ou la route." },
-          { img: "nissan.avif", title: "Nissan Micra", text: "Moderne, économique et idéale pour la ville ou la route." },
-          { img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Moderne, économique et idéale pour la ville ou la route." },
-          { img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Moderne, économique et idéale pour la ville ou la route." },
-          { img: "peugeot-208.png", title: "Peugeot-208", text: "Moderne, économique et idéale pour la ville ou la route." },
-          
-        ]
+  {
+    img: "Skoda Scala.png",
+    title: "Skoda Scala",
+    text: "Design raffiné et technologies intelligentes pour un confort optimal."
+  },
+  {
+    img: "crossland.png",
+    title: "Opel Crossland",
+   text: "Polyvalente et spacieuse — parfaite pour les aventures en famille."
+  },
+  {
+    img: "nissan.avif",
+    title: "Nissan Micra",
+    text: "Compacte, stylée et agile — idéale pour la conduite en ville."
+  },
+  {
+    img: "OPEL CORSA.jpg",
+    title: "Opel Corsa",
+   text: "Élégante, dynamique et prête pour tous vos trajets quotidiens."
+  },
+  {
+    img: "Opel-Corsa1.webp",
+    title: "Opel-Corsa",
+   text: "Confort urbain et efficacité sur route — un choix malin."
+  },
+  {
+    img: "peugeot-208.png",
+    title: "Peugeot-208",
+    text: "Une touche de sportivité avec un design contemporain et audacieux."
+  }
+]
+
       },
       en: {
         services: "Services",
@@ -417,6 +589,28 @@
       const carSection = document.getElementById("carCards");
 carSection.innerHTML = "";  // Pulisce la sezione dove vengono aggiunte le auto
 translations[lang].carsData.forEach(car => {
+  let customIcons = `
+    <div class="d-flex justify-content-around text-dark my-3" style="font-size: 1rem;">
+      <div><i class="fas fa-user-friends"></i> 5</div>
+      <div><i class="fas fa-door-open"></i> 5</div>
+      <div><i class="fas fa-snowflake"></i> A/C</div>
+      <div><i class="fas fa-cogs"></i> Manuel.</div>
+      <div><i class="fas fa-gas-pump"></i> Diesel</div>
+    </div>
+  `;
+
+  if (car.title === "Skoda Scala") {
+    customIcons = `
+      <div class="d-flex justify-content-around text-dark my-3" style="font-size: 1rem;">
+        <div><i class="fas fa-user-friends"></i> 5</div>
+        <div><i class="fas fa-door-open"></i> 5 </div>
+        <div><i class="fas fa-snowflake"></i> A/C</div>
+        <div><i class="fas fa-sliders-h"></i> Automatique</div>
+        <div><i class="fas fa-gas-pump"></i> Esence</div>
+      </div>
+    `;
+  }
+
   carSection.innerHTML += `
     <div class="col-md-4">
       <div class="card">
@@ -424,22 +618,15 @@ translations[lang].carsData.forEach(car => {
         <div class="card-body">
           <h5 class="card-title">${car.title}</h5>
           <p class="card-text">${car.text}</p>
-           <!-- Sezione icone -->
-        <div class="d-flex justify-content-around text-primary my-3" style="font-size: 1.1rem;">
-          <div><i class="fas fa-user"></i> 5</div>
-          <div><i class="fas fa-suitcase"></i> 2</div>
-          <div><i class="fas fa-door-open"></i> 4</div>
-          <div><i class="fas fa-snowflake"></i> A/C</div>
-          <div><i class="fas fa-cogs"></i> Man.</div>
-          <div><i class=""></i> Diesel</div>
-
-        </div>
-          <button class="btn btn-primary" onclick="openBookingModal('${car.title}')">Réserver Maintenant</button>
+          ${customIcons}
+          <button class="btn btn-reserve" onclick="openBookingModal('${car.title}')">Réserver Maintenant</button>
         </div>
       </div>
-    </div>    
+    </div>
   `;
 });
+
+
 const track = document.getElementById('carouselTrack');
     const items = document.querySelectorAll('.carousel-item');
     const totalItems = items.length;
@@ -451,100 +638,112 @@ const track = document.getElementById('carouselTrack');
       track.style.transform = `translateY(-${offset}px)`;
     }, 3000); // cambia ogni 3 secondi
     }
-//DOM
-    window.addEventListener("DOMContentLoaded", () => {
-      changeLanguage("fr");
-    });
-    function openBookingModal(carName) {
+let selectedCarName = ""; // <<-- aggiunto
+
+window.addEventListener("DOMContentLoaded", () => {
+  changeLanguage("fr");
+});
+
+function openBookingModal(carName) {
   selectedCarName = carName;
-  $('#bookingModal').modal('show'); // se usi Bootstrap
+  const existingModal = document.getElementById('bookingModal');
+  if (existingModal) existingModal.remove();
+
   const formHtml = `
-  <div id="bookingModal" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form id="reservationForm">
-        <div class="modal-header">
-          <h5 class="modal-title">Prenotazione</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi">
-            <span>&times;</span>
-          </button>
+    <div id="bookingModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content neumorphic">
+
+         <form id="reservationForm" action="https://formsubmit.co/teamcarmt@email.com" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle réservation">
+           <input type="hidden" name="_next" value="https://votresito.com/merci.html">
+            <div class="modal-header">
+              <h5 class="modal-title" style= "color: black; ">Reservation</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+            </div>
+            <div class="modal-body neumorphic-card">
+              <div class="form-group">
+                <input type="text" class="neumorphic-input form-control" id="name" required placeholder="Nome completo">
+              </div>
+             
+    <div class="form-group">
+  <input list="locations" id="departurePlace" name="departurePlace" class="neumorphic-input form-control" required placeholder="Écrivez ou choisissez votre point de départ">
+  <datalist id="locations">
+    <option value="Martil"></option>
+    <option value="Mdiq"></option>
+    <option value="Fnideq"></option>
+    <option value="Bab ceuta"></option>
+    <option value="Tetouan"></option>
+    <option value="Tetouan aeroport"></option>
+    <option value="Tanger"></option>
+    <option value="Tanger Aeroport"></option>
+    <option value="Tanger Med"></option>
+    <option value="tangeri"></optio
+  </datalist>
+</div>
+
+
+
+       <div class="form-group">
+  <input list="locations" id="returnPlace" name="returnPlace" class="neumorphic-input form-control" required placeholder="Écrivez ou choisissez votre point d'arrivée">
+  <datalist id="locations">
+    <option value="Martil"></option>
+    <option value="Mdiq"></option>
+    <option value="Fnideq"></option>
+    <option value="Bab ceuta"></option>
+    <option value="Tetouan"></option>
+    <option value="Tetouan aeroport"></option>
+    <option value="Tanger"></option>
+    <option value="Tanger Aeroport"></option>
+    <option value="Tanger Med"></option>
+    <option value="tangeri"></optio
+  </datalist>
+</div>
+
+              <div class="row">
+                <div class="col-6">
+                  <input type="date" class="neumorphic-input form-control" id="departureDate" required>
+                </div>
+                <div class="col-6">
+                  <input type="time" class="neumorphic-input form-control" id="departureTime" required>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-6">
+                  <input type="date" class="neumorphic-input form-control" id="returnDate" required>
+                </div>
+                <div class="col-6">
+                  <input type="time" class="neumorphic-input form-control" id="returnTime" required>
+                </div>
+              </div>
+              <div class="form-group mt-2">
+                <input type="text" class="neumorphic-input form-control" id="contact" required placeholder="Contatto telefono o email">
+              </div>
+              <div class="form-group">
+                <textarea class="neumorphic-input form-control" id="message" rows="2" placeholder="Messaggio facoltativo"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success">Invia su WhatsApp</button>
+            </div>
+          </form>
         </div>
-
-        <div class="modal-body">
-
-          <!-- Nome -->
-          <div class="form-group">
-            <input type="text" class="form-control" id="name" required placeholder="Nome completo">
-          </div>
-
-          <!-- Luogo di Partenza -->
-          <div class="form-group">
-            <input type="text" class="form-control" id="departurePlace" required placeholder="Luogo di partenza">
-          </div>
-
-          <!-- Luogo di Ritorno -->
-          <div class="form-group">
-            <input type="text" class="form-control" id="returnPlace" required placeholder="Luogo di ritorno">
-          </div>
-
-          <!-- Data e Ora di Partenza -->
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <input type="date" class="form-control" id="departureDate" required placeholder="Data partenza">
-            </div>
-            <div class="form-group col-md-6">
-              <input type="time" class="form-control" id="departureTime" required placeholder="Ora partenza">
-            </div>
-          </div>
-
-          <!-- Data e Ora di Ritorno -->
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <input type="date" class="form-control" id="returnDate" required placeholder="Data ritorno">
-            </div>
-            <div class="form-group col-md-6">
-              <input type="time" class="form-control" id="returnTime" required placeholder="Ora ritorno">
-            </div>
-          </div>
-
-          <!-- Contatto -->
-          <div class="form-group">
-            <input type="text" class="form-control" id="contact" required placeholder="Contatto telfono o email">
-          </div>
-
-          <!-- Messaggio -->
-          <div class="form-group">
-            <textarea class="form-control" id="message" rows="2" placeholder="Messaggio facoltativo "></textarea>
-          </div>
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success btn-block">Invia su WhatsApp</button>
-        </div>
-      </form>
+      </div>
     </div>
-  </div>
-</div>
-<div id="successMessage" class="alert alert-success mt-3" style="display: none;">
-  ✅ Prenotazione inviata con successo!
-</div>
-
+    <div id="successMessage" class="alert alert-success mt-3 text-center" style="display: none;">
+      ✅ Prenotazione inviata con successo!
+    </div>
   `;
 
-  // Aggiungi il form al corpo della pagina
-  document.body.innerHTML += formHtml;
+  document.body.insertAdjacentHTML('beforeend', formHtml);
 
-  // Mostra il modulo (assicurati di usare Bootstrap o un'altra libreria per gestire le modali)
-  $('#bookingModal').modal('show');
+  const modal = new bootstrap.Modal(document.getElementById('bookingModal'));
+  modal.show();
 
-  // Gestisci l'invio del modulo
-document.getElementById('reservationForm').onsubmit = function(event) {
-  event.preventDefault();  // Evita il comportamento predefinito
-  submitBookingForm(this);  // Passa il form come riferimento
-};
+ 
+}
 
-function submitBookingForm(form) {
+function submitBookingForm(form, modalInstance) {
   const name = document.getElementById('name').value;
   const departurePlace = document.getElementById('departurePlace').value;
   const returnPlace = document.getElementById('returnPlace').value;
@@ -556,7 +755,7 @@ function submitBookingForm(form) {
   const message = document.getElementById('message').value;
 
   const fullMessage = `
-🚗 *Prenotazione Cliente* 
+🚗 *Prenotazione Cliente*
 🚗 *Auto:* ${selectedCarName}
 👤 Nome: ${name}
 📍 Partenza da: ${departurePlace}
@@ -570,29 +769,24 @@ function submitBookingForm(form) {
   const whatsappUrl = `https://wa.me/212723930064?text=${encodeURIComponent(fullMessage)}`;
   window.open(whatsappUrl, '_blank');
 
-  // ✅ Mostra messaggio di conferma
   const successBox = document.getElementById("successMessage");
-  if (successBox) successBox.style.display = "block";
+  successBox.style.display = "block";
 
-  // ✅ Chiudi il modal dopo 1 secondo
   setTimeout(() => {
-    const modalElement = document.getElementById('bookingModal');
-    const modalInstance = bootstrap.Modal.getInstance(modalElement);
-    if (modalInstance) modalInstance.hide();
-
-    // Nascondi messaggio dopo 3 secondi
+    modalInstance.hide();
     setTimeout(() => {
-      if (successBox) successBox.style.display = "none";
+      successBox.style.display = "none";
     }, 3000);
   }, 1000);
 
-  // ✅ Resetta il modulo
   form.reset();
-}}
+}
 
 
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </html>
