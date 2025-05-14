@@ -290,11 +290,6 @@ body {
   <!-- Hero/Bannière avec grande photo -->
   <div class="main-banner">
     <img src="banner.jpeg" alt="Banner Image" class="banner-image">
-    <div class="banner-text">
-      <h1 class="display-4" data-i18n="main_title">Service de location de voitures à Martil & Tétouan</h1>
-      <p class="lead" data-i18n="main_subtitle">"Louez votre voiture en toute simplicité – Livraison aéroport gratuite incluse ✈️🌞"</p>
-      <a href="https://wa.me/212723930064" class="btn btn-success btn-lg" data-i18n="reserve">Contactez Nous</a>
-    </div>
   </div>
 </section>
 
@@ -724,7 +719,7 @@ function openBookingModal(carName) {
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success">Invia su WhatsApp</button>
+              <button type="submit" class="btn btn-success">Réservez Maintenant </button>
             </div>
           </form>
         </div>
@@ -766,8 +761,7 @@ function submitBookingForm(form, modalInstance) {
 📝 Messaggio: ${message || "Nessun messaggio aggiuntivo"}
 `;
 
-  const whatsappUrl = `https://wa.me/212723930064?text=${encodeURIComponent(fullMessage)}`;
-  window.open(whatsappUrl, '_blank');
+  
 
   const successBox = document.getElementById("successMessage");
   successBox.style.display = "block";
