@@ -93,52 +93,45 @@ body {
       text-shadow: 1px 1px 4px black;
     }
 /* btn lingue */
-    .dropdown-language {
+   /* Aggiungi questo al tuo CSS esistente per migliorare il pulsante delle lingue */
+.language-switcher {
+  display: flex;
+  align-items: center;
   margin-left: 10px;
 }
 
-.dropdown-language .dropdown-toggle {
-  color: #d4a762;
-  border-color: #d4a762;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
+.language-switcher .btn {
+  margin: 0 2px;
   padding: 5px 10px;
+  color: #d4a762 !important;
+  border: 1px solid #d4a762;
+  background-color: transparent;
+  transition: all 0.3s ease;
 }
 
-.dropdown-language .dropdown-toggle:hover {
-  background-color: rgba(212, 167, 98, 0.15);
+.language-switcher .btn:hover,
+.language-switcher .btn.active {
+  background-color: #d4a762;
+  color: #000 !important;
 }
 
-.dropdown-language .dropdown-menu {
-  background-color: rgba(0, 0, 0, 0.9);
-  border-color: #d4a762;
-}
-
-.dropdown-language .dropdown-item {
-  color: #d4a762;
-  display: flex;
-  align-items: center;
-  padding: 8px 15px;
-}
-
-.dropdown-language .dropdown-item:hover {
-  background-color: rgba(212, 167, 98, 0.15);
-  color: white;
-}
-
-.dropdown-language .dropdown-item img {
-  margin-right: 8px;
+/* Miglioramenti per il responsive su dispositivi mobili */
+@media screen and (max-width: 992px) {
+  .language-switcher {
+    margin: 10px 0;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 576px) {
-  .dropdown-language {
-    margin: 5px auto;
+  .language-switcher {
+    flex-wrap: wrap;
   }
   
-  .dropdown-language .dropdown-toggle {
+  .language-switcher .btn {
+    margin: 2px;
+    font-size: 0.85rem;
     padding: 4px 8px;
-    font-size: 0.9rem;
   }
 }
     .section-title {
