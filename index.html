@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEAM CAR - Location de Voitures</title>
@@ -19,9 +20,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <style>
-   
+  
 
   /* Formule */
+  
+ 
 .neumorphic {
   background: #e0e5ec;
   border-radius: 10px;
@@ -92,28 +95,7 @@ body {
       padding: 120px 0;
       text-shadow: 1px 1px 4px black;
     }
-/* btn lingue */
-   /* Aggiungi questo al tuo CSS esistente per migliorare il pulsante delle lingue */
-.language-switcher {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-}
 
-.language-switcher .btn {
-  margin: 0 2px;
-  padding: 5px 10px;
-  color: #d4a762 !important;
-  border: 1px solid #d4a762;
-  background-color: transparent;
-  transition: all 0.3s ease;
-}
-
-.language-switcher .btn:hover,
-.language-switcher .btn.active {
-  background-color: #d4a762;
-  color: #000 !important;
-}
 
 /* Miglioramenti per il responsive su dispositivi mobili */
 @media screen and (max-width: 992px) {
@@ -254,10 +236,6 @@ body {
       border-radius: 1%;
     }
     
-
-
-
-
 .language-switcher {
   margin-left: 15px;
 }
@@ -299,6 +277,7 @@ body {
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
+/*botone per sopra */
 #back-to-top {
 
   position: fixed;
@@ -315,13 +294,40 @@ body {
   display: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
-
-
 }
-
 #back-to-top:hover {
   color: black;
 }
+
+  /* Contenitore per allineamento */
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+
+  /* Stile del select */
+  .language-switcher select {
+  color: #d4a762;
+  border-color: #d4a762;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  }
+
+  /* Personalizzazione del caret (freccia) solo per decorazione */
+  .language-switcher::after {
+    
+    color: black;
+    margin-left: -20px;
+    pointer-events: none;
+  }
+
+   .form-select option {
+    font-weight: bold;
+  }
+</style>
 
 
 
@@ -331,48 +337,38 @@ body {
 <body>
 <section>
    <!-- Navbar avec logo -->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="new logo.png" alt="TEAM CAR Logo">
-      </a>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#services" data-i18n="services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#voitures" data-i18n="cars">Nos Voitures</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="contact">Contact</a></li>
-          <li class="nav-item language-switcher">
-            <!-- Lingua Dropdown -->
-<div class="dropdown">
-  <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center gap-2 px-3 py-1" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-    <img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="FR" id="langFlag"> Fr
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('fr', this)">
-      <img src="https://flagcdn.com/w20/fr.png" width="20" height="14"> Fr</a></li>
-    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('en', this)">
-      <img src="https://flagcdn.com/w20/us.png" width="20" height="14"> En</a></li>
-    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('es', this)">
-      <img src="https://flagcdn.com/w20/es.png" width="20" height="14"> Es</a></li>
-    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('ar', this)">
-      <img src="https://flagcdn.com/w20/ma.png" width="20" height="14"> Ar</a></li>
-    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('it', this)">
-      <img src="https://flagcdn.com/w20/it.png" width="20" height="14"> It</a></li>
-    <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" onclick="changeLanguage('de', this)">
-      <img src="https://flagcdn.com/w20/de.png" width="20" height="14"> De</a></li>
-  </ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="new logo.png" alt="TEAM CAR Logo">
+    </a>
 
-          </li>
-        </ul>
-        
-      </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#services" data-i18n="services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#voitures" data-i18n="cars">Nos Voitures</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="contact">Contact</a></li>
+        <li class="nav-item language-switcher">
+       <select class="form-select form-select-sm" onchange="changeLanguage(this.value)">
+              <option value="fr" selected>Fr</option>
+              <option value="en">En</option>
+              <option value="es">Es</option>
+              <option value="ar">Ar</option>
+              <option value="it">It</option>
+              <option value="de">De</option>
+      </select>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
+
+
   </section>
 <section>
   <!-- Hero/Bannière avec grande photo -->
@@ -535,77 +531,24 @@ body {
   </div>
 </footer>
 
-</body>
+
 
 
   <script>
-    function changeLanguage(langCode, el) {
-    const flag = el.querySelector("img").src;
-    const label = el.textContent.trim();
-
-    document.getElementById("langFlag").src = flag;
-    document.getElementById("langDropdown").innerHTML = `<img src="${flag}" width="20" height="14" class="me-2" alt="${langCode}"> ${label}`;
-
-    console.log("Lingua selezionata:", langCode);
-    // Se vuoi cambiare testi sulla pagina, lo puoi fare qui
-  }
-    
-    function openModal(src) {
-      const modalImg = document.getElementById('modalImage');
-      modalImg.src = src;
-      const myModal = new bootstrap.Modal(document.getElementById('imageModal'));
-      myModal.show();
-    }
-
     const translations = {
       fr: {
-        services: "Services",
-        cars: "Nos Voitures",
-        contact: "Contact",
-        main_title: "Service de location de voitures à Martil & Tétouan",
-        main_subtitle: "Louez votre voiture en toute simplicité – Livraison aéroport gratuite incluse ✈️🌞",
-        reserve: "Contactez Nous",
-        carsData: [
-  {
-    img: "Skoda Scala.png",
-    title: "Skoda Scala",
-    text: "Design raffiné et technologies intelligentes pour un confort optimal."
-  },
-  {
-    img: "crossland.png",
-    title: "Opel Crossland",
-   text: "Polyvalente et spacieuse — parfaite pour les aventures en famille."
-  },
-  {
-    img: "nissan.avif",
-    title: "Nissan Micra",
-    text: "Compacte, stylée et agile — idéale pour la conduite en ville."
-  },
-  {
-    img: "OPEL CORSA.jpg",
-    title: "Opel Corsa",
-   text: "Élégante, dynamique et prête pour tous vos trajets quotidiens."
-  },
-  {
-    img: "Opel-Corsa1.webp",
-    title: "Opel-Corsa",
-   text: "Confort urbain et efficacité sur route — un choix malin."
-  },
-  {
-    img: "peugeot-208.png",
-    title: "Peugeot-208",
-    text: "Une touche de sportivité avec un design contemporain et audacieux."
-  }
-]
-
-      },
+        services: "Services",cars: "Nos Voitures",contact: "Contact",
+  carsData: [
+  {img: "Skoda Scala.png",title: "Skoda Scala",text: "Design raffiné et technologies intelligentes pour un confort optimal."},
+  {img: "crossland.png",title: "Opel Crossland",text: "Polyvalente et spacieuse — parfaite pour les aventures en famille."},
+  {img: "nissan.avif",title: "Nissan Micra",text: "Compacte, stylée et agile — idéale pour la conduite en ville."},
+  {img: "OPEL CORSA.jpg",title: "Opel Corsa",text: "Élégante, dynamique et prête pour tous vos trajets quotidiens."},
+  {img: "Opel-Corsa1.webp",title: "Opel-Corsa",text: "Confort urbain et efficacité sur route — un choix malin."},
+  {img: "peugeot-208.png",title: "Peugeot-208",text: "Une touche de sportivité avec un design contemporain et audacieux."}
+]},
       en: {
-        services: "Services",
-        cars: "Our Cars",
-        contact: "Contact",
-        main_title: "Car rental in Martil & Tetouan",
-        main_subtitle: "Comfort, style and reliability with free airport delivery ✈️",
-        reserve: "Book on WhatsApp",
+        services: "Services",cars: "Our Cars",contact: "Contact",
+        
         carsData: [
           { img: "scala.webp", title: "Skoda Scala", text: "Modern, economical and ideal for city or road." },
           { img: "crossland.png", title: "Opel Crossland", text: "Modern, economical and ideal for city or road." },
@@ -614,15 +557,9 @@ body {
           { img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Modern, economical and ideal for city or road." },
           { img: "peugeot-208.png", title: "Peugeot-208", text: "Modern, economical and ideal for city or road." }
           
-        ]
-      },
+        ]},
       es: {
-        services: "Servicios",
-        cars: "Nuestros Coches",
-        contact: "Contacto",
-        main_title: "Alquiler de coches en Martil y Tetuán",
-        main_subtitle: "Comodidad, estilo y fiabilidad con entrega gratuita en el aeropuerto ✈️",
-        reserve: "Reservar por WhatsApp",
+        services: "Servicios",cars: "Nuestros Coches",contact: "Contacto",       
         carsData: [
           { img: "scala.webp", title: "Skoda Scala", text: "Moderna, económica e ideal para ciudad o carretera." },
           { img: "crossland.png", title: "Opel Crossland", text: "Moderna, económica e ideal para ciudad o carretera." },
@@ -631,15 +568,9 @@ body {
           { img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Moderna, económica e ideal para ciudad o carretera." },
           { img: "peugeot-208.png", title: "Peugeot-208", text: "Moderna, económica e ideal para ciudad o carretera." }
           
-        ]
-      },
+        ]},
       ar: {
-        services: "الخدمات",
-        cars: "السيارات",
-        contact: "اتصال",
-        main_title: "تأجير سيارات في مرتيل وتطوان",
-        main_subtitle: "راحة وأناقة وموثوقية مع توصيل مجاني إلى المطار ✈️",
-        reserve: "احجز عبر واتساب",
+        services: "الخدمات",cars: "السيارات",contact: "اتصال",
         carsData: [
           { img: "scala.webp", title: "سكودا سكالا", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
           { img: "crossland.png", title: "أوبل كروس لاند", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
@@ -647,15 +578,9 @@ body {
           { img: "OPEL CORSA.jpg", title: "أوبل كورسا", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
           { img: "Opel-Corsa1.webp", title: "أوبل كورسا", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." },
           { img: "peugeot-208.png", title: "بيجو 208", text: "حديثة واقتصادية ومثالية للمدينة أو الطريق." }
-        ]
-      },
+        ]},
       de:{
-  services: "Dienstleistungen",
-  cars: "Unsere Autos",
-  contact: "Kontakt",
-  main_title: "Autovermietung in Martil & Tétouan",
-  main_subtitle: "Komfort, Stil und Zuverlässigkeit mit kostenfreier Lieferung zum Flughafen ✈️",
-  reserve: "Auf WhatsApp reservieren",
+  services: "Dienstleistungen",cars: "Unsere Autos",contact: "Kontakt",
   carsData: [
     { img: "scala.webp", title: "Skoda Scala", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
     { img: "crossland.png", title: "Opel Crossland", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
@@ -663,61 +588,84 @@ body {
     { img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
     { img: "Opel-Corsa1.webp", title: "Opel Corsa", text: "Modern, sparsam und ideal für Stadt oder Landstraße." },
     { img: "peugeot-208.png", title: "Peugeot 208", text: "Modern, sparsam und ideal für Stadt oder Landstraße." }
-  ]
-}
+  ]}
 
     };
 
-    function changeLanguage(lang) {
-      const elements = document.querySelectorAll("[data-i18n]");
-      elements.forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[lang] && translations[lang][key]) {
-          el.innerText = translations[lang][key];
-        }
-      });
+ function changeLanguage(langCode, el = null, event = null) {
+  if (event) event.preventDefault();
 
-      const carSection = document.getElementById("carCards");
-carSection.innerHTML = "";  // Pulisce la sezione dove vengono aggiunte le auto
-translations[lang].carsData.forEach(car => {
-  let customIcons = `
-    <div class="d-flex justify-content-around text-dark my-3" style="font-size: 1rem;">
-      <div><i class="fas fa-user-friends"></i> 5</div>
-      <div><i class="fas fa-door-open"></i> 5</div>
-      <div><i class="fas fa-snowflake"></i> A/C</div>
-      <div><i class="fas fa-cogs"></i> Manuel.</div>
-      <div><i class="fas fa-gas-pump"></i> Diesel</div>
-    </div>
-  `;
-
-  if (car.title === "Skoda Scala") {
-    customIcons = `
-      <div class="d-flex justify-content-around text-dark my-3" style="font-size: 1rem;">
-        <div><i class="fas fa-user-friends"></i> 5</div>
-        <div><i class="fas fa-door-open"></i> 5 </div>
-        <div><i class="fas fa-snowflake"></i> A/C</div>
-        <div><i class="fas fa-sliders-h"></i> Automatique</div>
-        <div><i class="fas fa-gas-pump"></i> Esence</div>
-      </div>
-    `;
+  if (el) {
+    const flag = el.querySelector("img")?.src;
+    const label = el.textContent.trim();
+    document.getElementById("langFlag").src = flag;
+    document.getElementById("langFlag").alt = langCode.toUpperCase();
+    document.getElementById("langCode").textContent = label;
   }
 
-  carSection.innerHTML += `
-    <div class="col-md-4">
-      <div class="card">
-        <img src="${car.img}" class="card-img-top" alt="${car.title}" onclick="openModal(this.src)">
-        <div class="card-body">
-          <h5 class="card-title">${car.title}</h5>
-          <p class="card-text">${car.text}</p>
-          ${customIcons}
-          <button class="btn btn-reserve" onclick="openBookingModal('${car.title}')">Réserver Maintenant</button>
+  const elements = document.querySelectorAll("[data-i18n]");
+  elements.forEach(elm => {
+    const key = elm.getAttribute("data-i18n");
+    if (translations[langCode] && translations[langCode][key]) {
+      elm.innerText = translations[langCode][key];
+    }
+  });
+
+  renderCars(langCode); // ✅ questa chiama una funzione ESTERNA
+}
+
+// ✅ ORA questa funzione è fuori, non dentro
+function renderCars(lang) {
+  const carSection = document.getElementById("carCards");
+  if (!carSection || !translations[lang]) return;
+
+  carSection.innerHTML = "";
+
+  translations[lang].carsData.forEach(car => {
+    let customIcons = `
+      <div class="d-flex justify-content-around text-dark my-3" style="font-size: 1rem;">
+        <div><i class="fas fa-user-friends"></i> 5</div>
+        <div><i class="fas fa-door-open"></i> 5</div>
+        <div><i class="fas fa-snowflake"></i> A/C</div>
+        <div><i class="fas fa-cogs"></i> Manuel.</div>
+        <div><i class="fas fa-gas-pump"></i> Diesel</div>
+      </div>
+    `;
+
+    if (car.title === "Skoda Scala" || car.title === "سكودا سكالا") {
+      customIcons = `
+        <div class="d-flex justify-content-around text-dark my-3" style="font-size: 1rem;">
+          <div><i class="fas fa-user-friends"></i> 5</div>
+          <div><i class="fas fa-door-open"></i> 5</div>
+          <div><i class="fas fa-snowflake"></i> A/C</div>
+          <div><i class="fas fa-sliders-h"></i> Automatique</div>
+          <div><i class="fas fa-gas-pump"></i> Essence</div>
+        </div>
+      `;
+    }
+
+    carSection.innerHTML += `
+      <div class="col-md-4">
+        <div class="card">
+          <img src="${car.img}" class="card-img-top" alt="${car.title}" onclick="openModal(this.src)">
+          <div class="card-body">
+            <h5 class="card-title">${car.title}</h5>
+            <p class="card-text">${car.text}</p>
+            ${customIcons}
+            <button class="btn btn-reserve" onclick="openBookingModal('${car.title}')">Réserver Maintenant</button>
+          </div>
         </div>
       </div>
-    </div>
-  `;
-});
-
-
+    `;
+  });
+}
+    
+    function openModal(src) {
+      const modalImg = document.getElementById('modalImage');
+      modalImg.src = src;
+      const myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+      myModal.show();
+    }
 const track = document.getElementById('carouselTrack');
     const items = document.querySelectorAll('.carousel-item');
     const totalItems = items.length;
@@ -728,12 +676,10 @@ const track = document.getElementById('carouselTrack');
       const offset = index * 200; // 200 = altezza immagine
       track.style.transform = `translateY(-${offset}px)`;
     }, 3000); // cambia ogni 3 secondi
-    }
+    
 let selectedCarName = "";
 
-window.addEventListener("DOMContentLoaded", () => {
-  changeLanguage("fr");
-});
+
 
 function openBookingModal(carName) {
   selectedCarName = carName;
@@ -837,11 +783,26 @@ window.onscroll = function() {
 document.getElementById("back-to-top").onclick = function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
+window.addEventListener("DOMContentLoaded", () => {
+  changeLanguage("fr");
+});
+<!-- Bootstrap JS -->
+
+<!-- Script per chiudere navbar -->
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+    link.addEventListener('click', function () {
+      var navbarCollapse = document.querySelector('.navbar-collapse');
+      if (navbarCollapse.classList.contains('show')) {
+        new bootstrap.Collapse(navbarCollapse).hide();
+      }
+    });
+  });
 
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-
+</body>
 </html>
