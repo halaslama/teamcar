@@ -327,6 +327,9 @@
     #back-to-top:hover {
       color: black;
     }
+    .container-section-title{
+      text-align:left;
+    }
 
     .footer{
       width: 100%;
@@ -359,10 +362,10 @@
     <!-- ✅ Menu collapsabile -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#servizi" data-i18n="nav_services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services" data-i18n="nav_services">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="#voitures" data-i18n="nav_cars">Nos Voitures</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="#apropos" data-i18n="nav_about">Apropos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#apropos" data-i18n="nav_about">A propos</a></li>
       </ul>
     </div>
     <!-- ✅ Lingua -->
@@ -412,7 +415,7 @@
 </section>
 
  <!--Service-->   
-<section id="servizi" class="py-5">
+<section id="services" class="py-5">
   <div class="container">
     <h2 class="text-center" data-i18n="services_title">Nos Services</h2>
     <br>
@@ -468,7 +471,7 @@
       <div class="container">
             <div class="row">
                 <div class="text-center">
-                    <h2 class="contact-title">Contactez Nous</h2>
+                    <h2 class="contact-title" data-i18n="contact.title">Contactez Nous</h2>
                 </div>
             </div>
             <div class="container">
@@ -504,7 +507,7 @@
   <!-- Map Section -->
 <section id="map" class="py-5">
   <div class="container">
-    <h3 class="text-center mb-4" style="color: #d4a762;" >📍 Localisation</h3>
+    <h3 class="text-center mb-4" style="color: #d4a762;" data-i18n="title.localisation">📍 Localisation</h3>
     <div class="ratio ratio-16x9">
      <iframe 
         src="https://www.google.com/maps?q=N%207,%20kaysaryat%20Rive%20D'or,%20Av.%20Abderahman%20III,%20Martil&output=embed" 
@@ -524,11 +527,20 @@
 </button>
 
 <!--Chi siamo-->
-<section id="about" class="container section-title">
+<section id="apropos" class="container section-title">
   <h2 class="text-center" data-i18n="about_title">A propos</h2>
-  <p class="text-center" data-i18n="about_text">
-    Allogio Auto est une société de location de voitures située dans le nord du Maroc, dans une ville touristique proche de la mer et entourée de nombreuses destinations prisées. Nous offrons des services flexibles, économiques et fiables.
-  </p>
+  <p class="text-start" data-i18n="about_text">
+    Team Car – La location de voiture simple, flexible et fiable à Martil
+      Fondée en 2012 par une équipe de jeunes entrepreneurs passionnés, Team Car a vu le jour avec une ambition claire : simplifier et améliorer l’expérience de location de véhicules. Depuis plus de 10 ans, nous mettons tout en œuvre pour offrir des solutions de mobilité flexibles, économiques et adaptées à tous vos besoins.
+      Que vous soyez un touriste désireux de découvrir les magnifiques paysages de la région ou un résident à la recherche d'une solution de transport pratique, nous vous proposons une flotte moderne et bien entretenue, allant des citadines économiques aux SUV spacieux.
+      Pourquoi choisir Team Car ?
+      ✅ Large choix de véhicules : Des modèles récents, fiables et soigneusement entretenus.
+      ✅ Tarifs compétitifs : Des offres flexibles, accessibles à tous les budgets.
+      ✅ Réservation facile : Rapide et sécurisée, en ligne ou directement en agence.
+      ✅ Service personnalisé : Une équipe locale à votre écoute, pour un accompagnement sur mesure.
+      Au fil des années, nous avons bâti notre réputation sur des valeurs fortes : fiabilité, transparence et satisfaction client. C’est ce qui fait aujourd’hui de Team Car l’un des leaders de la location de voitures sans chauffeur à Martil.
+      Découvrez la liberté de conduire à votre rythme avec Team Car !
+      Team Car – Votre mobilité, notre priorité depuis 2012.</p>
 </section>
 
 <footer class="footer">
@@ -560,7 +572,6 @@
       <h4 data-i18n="footer.servicesTitle">Nos Services</h4>
       <ul style="list-style: none; padding: 0;">
         <li data-i18n="footer.service1">Livraison et récupération à l’aéroport</li>
-        <li data-i18n="footer.service2">Chauffeur privé</li>
         <li data-i18n="footer.service3">Accessoires supplémentaires (siège bébé,…)</li>
         <li data-i18n="footer.service4">Réservation facile en ligne</li>
         <li data-i18n="footer.service5">Assistance 24h/24</li>
@@ -582,10 +593,21 @@
   // 🌐 TRADUZIONI MULTILINGUA
   const translations = {
     fr:{
-      nav_services: "Services",nav_cars: "Nous Voitures",nav_contact: "Contact",nav_about: "À propos",big_title: "Location de voiture TeamCar",
-      services: "Services", cars: "Nous Voitures", contact: "Contact",about_title: "A propos Nous",
-      about_text: "TeamCar est une société de location de voitures située dans le nord du Maroc, dans une ville touristique proche de la mer et entourée de nombreuses destinations prisées. Nous offrons des services flexibles, économiques et fiables.",
-      services_title: "Nous Services",
+      nav_services: "Services",nav_cars: "Nos Voitures",nav_contact: "Contact",nav_about: "À propos",big_title: "Location de voiture TeamCar",
+      services: "Services", cars: "Nos Voitures", contact: "Contact",about_title: "A propos Nous",
+      about_text: `Team Car – La location de voiture simple, flexible et fiable à Martil
+      Fondée en 2012 par une équipe de jeunes entrepreneurs passionnés, Team Car a vu le jour avec une ambition claire : simplifier et améliorer l’expérience de location de véhicules. Depuis plus de 10 ans, nous mettons tout en œuvre pour offrir des solutions de mobilité flexibles, économiques et adaptées à tous vos besoins.
+      Que vous soyez un touriste désireux de découvrir les magnifiques paysages de la région ou un résident à la recherche d'une solution de transport pratique, nous vous proposons une flotte moderne et bien entretenue, allant des citadines économiques aux SUV spacieux.
+      Pourquoi choisir Team Car ?
+      ✅ Large choix de véhicules : Des modèles récents, fiables et soigneusement entretenus.
+      ✅ Tarifs compétitifs : Des offres flexibles, accessibles à tous les budgets.
+      ✅ Réservation facile : Rapide et sécurisée, en ligne ou directement en agence.
+      ✅ Service personnalisé : Une équipe locale à votre écoute, pour un accompagnement sur mesure.
+      Au fil des années, nous avons bâti notre réputation sur des valeurs fortes : fiabilité, transparence et satisfaction client. C’est ce qui fait aujourd’hui de Team Car l’un des leaders de la location de voitures sans chauffeur à Martil.
+      Découvrez la liberté de conduire à votre rythme avec Team Car !
+      Team Car – Votre mobilité, notre priorité depuis 2012.`,
+
+      services_title: "Nos Services",
       service1_title: "Location de Voitures à la Journée",
       service1_text: "Nous proposons une large gamme de véhicules à louer pour un ou plusieurs jours, avec des tarifs compétitifs et une transparence totale.",
       service2_title: "Location de Longue Durée",
@@ -596,7 +618,9 @@
       fuel: "Essence",
       automatic: "Automatique",
       essence: "Essence",
-      "footer.description": " TEAM CAR , votre partenaire de confiance pour la location de voitures à Martil et Tétouan. Des voitures bien entretenues, des prix abordables, et un service client disponible 24h/24. Réservez en toute simplicité, avec livraison gratuite à l’aéroport",
+      reserveNow: "Réserver Maintenant",
+
+      "footer.description": " TeamCar , votre partenaire de confiance pour la location de voitures à Martil et Tétouan. Des voitures bien entretenues, des prix abordables, et un service client disponible 24h/24. Réservez en toute simplicité, avec livraison gratuite à l’aéroport",
       "footer.contact": "Contact",
       "footer.addressLabel": "Adresse :",
       "footer.phoneLabel": "Téléphone :",
@@ -606,7 +630,6 @@
       "footer.hoursLabel": "Horaires :",
       "footer.servicesTitle": "Nos Services",
       "footer.service1": "Livraison et récupération à l’aéroport",
-      "footer.service2": "Chauffeur privé",
       "footer.service3": "Accessoires supplémentaires (siège bébé,…)",
       "footer.service4": "Réservation facile en ligne",
       "footer.service5": "Assistance 24h/24",
@@ -619,6 +642,8 @@
       "carousel.phrase1": "🚗 Location de voitures à la journée – Des prix imbattables !",
       "carousel.phrase2": "✈️ Livraison à l’aéroport disponible sur demande",
       "carousel.phrase3": "🕒 Location de longue durée – Flexibilité maximale",
+      "contact.title" : "Contactez Nous",
+      "title.localisation" : "Localisation",
       carsData: [
         { img: "scala1.webp", title: "Skoda Scala", text: "Design raffiné et technologies intelligentes pour un confort optimal.", price: "Prix à partir de 39 €"},
         { img: "crossland.png", title: "Opel Crossland", text: "Polyvalente et spacieuse — parfaite pour les aventures en famille.", price: "Prix à partir de 37 €" },
@@ -626,13 +651,32 @@
         { img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Élégante, dynamique et prête pour tous vos trajets quotidiens.", price: "Prix à partir de 30 €"},
         { img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Confort urbain et efficacité sur route — un choix malin.", price: "Prix à partir de 27 €"},
         { img: "peugeot-208.png", title: "Peugeot-208", text: "Une touche de sportivité avec un design contemporain et audacieux.", price: "Prix à partir de 30 €"}
-      ]
+      ],
+      bookingForm: {
+      title: "Réservation",
+      namePlaceholder: "Nom complet",
+          departurePlaceholder: "Lieu de départ",
+          returnPlaceholder: "Lieu de retour",
+          contactPlaceholder: "Téléphone ou Email",
+          messagePlaceholder: "Message (facultatif)",
+          submitButton: "Envoyer",
+          successMessage: "Réservation envoyée avec succès !"
+    }
       
     },
     en:{
       nav_services: "Services",nav_cars: "Our Cars",nav_contact: "Contact",nav_about: "About Us",big_title: "TeamCar Car Rental",
       services: "Services", cars: "Our Cars", contact: "Contact",about_title: "About Us",
-      about_text: "Allogio Auto is a car rental company located in northern Morocco, in a tourist city by the sea, close to many popular destinations. We offer flexible, affordable, and reliable services.",
+      about_text: `Team Car – Simple, flexible, and reliable car rental in Martil
+      Founded in 2012 by a team of passionate young entrepreneurs, Team Car was born with a clear ambition: to simplify and enhance the car rental experience. For over 10 years, we have been committed to offering flexible, affordable, and reliable mobility solutions.
+      Whether you're a tourist eager to explore the region's stunning landscapes or a resident looking for a convenient transport solution, we offer a modern and well-maintained fleet, from economical city cars to spacious SUVs.
+      Why choose Team Car?
+      ✅ Wide vehicle selection: Recent, reliable, and carefully maintained models.
+      ✅ Competitive prices: Flexible offers for every budget.
+      ✅ Easy booking: Quick and secure, online or directly at the agency.
+      ✅ Personalized service: A local team ready to assist with tailored support.
+      Over the years, we’ve built our reputation on strong values: reliability, transparency, and customer satisfaction. That’s what makes Team Car one of the leading car rental companies without driver in Martil today.
+      Discover the freedom to drive at your own pace with Team Car!`,
       services_title: "Our Services",
       service1_title: "Daily Car Rental",
       service1_text: "We offer a wide range of vehicles for rent for one or more days, with competitive rates and full transparency.",
@@ -644,7 +688,9 @@
       fuel: "Diesel",
       automatic: "Automatic",
       essence: "Petrol",
-      "footer.description": "TEAM CAR, your trusted partner for car rentals in Martil and Tétouan. Well-maintained cars, affordable prices, and 24/7 customer service. Book easily with free airport delivery.",
+      reserveNow: "Book Now", 
+
+      "footer.description": "TeamCar, your trusted partner for car rentals in Martil and Tétouan. Well-maintained cars, affordable prices, and 24/7 customer service. Book easily with free airport delivery.",
       "footer.contact": "Contact",
       "footer.addressLabel": "Address:",
       "footer.phoneLabel": "Phone:",
@@ -654,7 +700,6 @@
       "footer.hoursLabel": "Hours:",
       "footer.servicesTitle": "Our Services",
       "footer.service1": "Airport delivery and pickup",
-      "footer.service2": "Private driver",
       "footer.service3": "Extra accessories (baby seat, etc.)",
       "footer.service4": "Easy online booking",
       "footer.service5": "24/7 assistance",
@@ -667,6 +712,9 @@
       "carousel.phrase1": "🚗 Car rental by the day – Unbeatable prices!",
       "carousel.phrase2": "✈️ Airport delivery available on request",
       "carousel.phrase3": "🕒 Long-term rental – Maximum flexibility",
+      "contact.title" : "Contact Us",
+      "title.localisation" : "location",
+      
       carsData: [
         {img: "scala1.webp", title: "Skoda Scala", text: "Refined design and smart technology for maximum comfort.", price: "From €39"},
         {img: "crossland.png", title: "Opel Crossland", text: "Versatile and spacious — perfect for family adventures.", price: "From €37"},
@@ -674,12 +722,35 @@
         {img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Elegant, dynamic and ready for your daily trips.", price: "From €30"},
         {img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Urban comfort and road efficiency — a smart choice.", price: "From €27"},
         {img: "peugeot-208.png", title: "Peugeot-208", text: "A sporty touch with bold, contemporary design.", price: "From €30"}
-      ]
+      ],
+      
+      bookingForm: {
+          title: "Book a Car",
+          namePlaceholder: "Full Name",
+          departurePlaceholder: "Pick-up Location",
+          returnPlaceholder: "Return Location",
+          contactPlaceholder: "Phone or Email",
+          messagePlaceholder: "Message (optional)",
+          submitButton: "Submit",
+          successMessage: "Booking successfully sent!"
+        
+    }
+  
     },
     es: {
       nav_services: "Servicios",nav_cars: "Nuestros Coches",nav_contact: "Contacto",nav_about: "Sobre Nosotros",big_title: "Alquiler de coches TeamCar",
       services: "Servicios", cars: "Nuestros Coches", contact: "Contacto",about_title: "Quiénes somos",
-      about_text: "Allogio Auto es una empresa de alquiler de coches situada en el norte de Marruecos, en una ciudad turística cerca del mar y rodeada de destinos populares. Ofrecemos servicios flexibles, asequibles y fiables.",
+      about_text: `Team Car – Alquiler de coches simple, flexible y fiable en Martil
+      Fundada en 2012 por un equipo de jóvenes emprendedores apasionados, Team Car nació con una ambición clara: simplificar y mejorar la experiencia de alquilar un coche. Durante más de 10 años, nos hemos esforzado por ofrecer soluciones de movilidad flexibles, económicas y fiables.
+      Ya sea que seas un turista que quiere explorar los hermosos paisajes de la región o un residente que busca una solución práctica de transporte, te ofrecemos una flota moderna y bien mantenida, desde coches económicos hasta SUVs espaciosos.
+      ¿Por qué elegir Team Car?
+      ✅ Gran variedad de vehículos: Modelos recientes, fiables y bien cuidados.
+      ✅ Precios competitivos: Ofertas flexibles para todos los presupuestos.
+      ✅ Reserva fácil: Rápida y segura, en línea o directamente en la agencia.
+      ✅ Servicio personalizado: Un equipo local listo para ayudarte con atención personalizada.
+      Con el tiempo, hemos construido una reputación basada en valores sólidos: fiabilidad, transparencia y satisfacción del cliente. Hoy, eso nos convierte en uno de los líderes del alquiler de coches sin conductor en Martil.
+      ¡Descubre la libertad de conducir a tu ritmo con Team Car!`,
+
       services_title: "Nuestros Servicios",
       service1_title: "Alquiler de Coches por Día",
       service1_text: "Ofrecemos una amplia gama de vehículos para alquilar por uno o más días, con tarifas competitivas y total transparencia.",
@@ -691,7 +762,9 @@
       fuel: "Diésel",
       automatic: "Automático",
       essence: "Gasolina",
-      "footer.description": "TEAM CAR, tu socio de confianza para el alquiler de coches en Martil y Tetuán. Coches bien mantenidos, precios asequibles y atención al cliente 24/7. Reserva fácilmente con entrega gratuita en el aeropuerto.",
+      reserveNow: "Reservar ahora",
+
+      "footer.description": "TeamCar, tu socio de confianza para el alquiler de coches en Martil y Tetuán. Coches bien mantenidos, precios asequibles y atención al cliente 24/7. Reserva fácilmente con entrega gratuita en el aeropuerto.",
       "footer.contact": "Contacto",
       "footer.addressLabel": "Dirección:",
       "footer.phoneLabel": "Teléfono:",
@@ -701,7 +774,6 @@
       "footer.hoursLabel": "Horario:",
       "footer.servicesTitle": "Nuestros servicios",
       "footer.service1": "Entrega y recogida en el aeropuerto",
-      "footer.service2": "Conductor privado",
       "footer.service3": "Accesorios adicionales (silla para bebé, etc.)",
       "footer.service4": "Reserva fácil en línea",
       "footer.service5": "Asistencia 24/7",
@@ -714,6 +786,8 @@
       "carousel.phrase1": "🚗 Alquiler de coches por día – ¡Precios imbatibles!",
       "carousel.phrase2": "✈️ Entrega en el aeropuerto disponible a pedido",
       "carousel.phrase3": "🕒 Alquiler a largo plazo – Máxima flexibilidad",
+      "contact.title" : "Contáctenos",
+      "title.localisation" : "Ubicación",
       carsData: [
         {img: "scala1.webp", title: "Skoda Scala", text: "Diseño refinado y tecnología inteligente para un confort máximo.", price: "Desde 39 €"},
         {img: "crossland.png", title: "Opel Crossland", text: "Versátil y espacioso — perfecto para aventuras familiares.", price: "Desde 37 €"},
@@ -721,12 +795,33 @@
         {img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Elegante, dinámico y listo para tus viajes diarios.", price: "Desde 30 €"},
         {img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Comodidad urbana y eficiencia — una elección inteligente.", price: "Desde 27 €"},
         {img: "peugeot-208.png", title: "Peugeot-208", text: "Un toque deportivo con diseño audaz y moderno.", price: "Desde 30 €"}
-      ]
+      ],
+      bookingForm: {
+      title: "Reserva",
+      namePlaceholder: "Nombre completo",
+      departurePlaceholder: "Lugar de salida",
+      returnPlaceholder: "Lugar de regreso",
+      contactPlaceholder: "Teléfono o correo electrónico",
+      messagePlaceholder: "Mensaje (opcional)",
+      submitButton: "Enviar",
+      successMessage: "¡Reserva enviada con éxito!"
+    }
+
     },
     ar: {
       nav_services: "الخدمات",nav_cars: "سياراتنا",nav_contact: "اتصال",nav_about: "من نحن",big_title: "تأجير السيارات تيم كار",
       services: "الخدمات", cars: "السيارات", contact: "اتصال", about_title: "من نحن",
-      about_text: " هي شركة تأجير سيارات تقع في شمال المغرب، في مدينة سياحية بالقرب من البحر وقريبة من وجهات سياحية شهيرة. نقدم خدمات مرنة واقتصادية وموثوقة.",
+     about_text: `تيم كار – تأجير سيارات بسيط ومرن وموثوق في مرتيل
+      تأسست تيم كار في عام 2012 على يد فريق من رواد الأعمال الشباب الطموحين، بهدف واضح: تبسيط وتحسين تجربة تأجير السيارات. وعلى مدى أكثر من 10 سنوات، نعمل على تقديم حلول تنقل مرنة واقتصادية وموثوقة.
+      سواء كنت سائحاً ترغب في استكشاف مناظر المنطقة الخلابة، أو مقيماً تبحث عن وسيلة نقل مريحة، نقدم لك أسطولاً حديثاً ومجهزاً بشكل جيد، من السيارات الاقتصادية إلى سيارات SUV الواسعة.
+      لماذا تختار تيم كار؟
+      ✅ تشكيلة واسعة من السيارات: موديلات حديثة، موثوقة ومصانة بعناية.
+      ✅ أسعار تنافسية: عروض مرنة تناسب جميع الميزانيات.
+      ✅ حجز سهل: سريع وآمن، عبر الإنترنت أو مباشرة من المكتب.
+      ✅ خدمة شخصية: فريق محلي مستعد لخدمتك ودعمك حسب احتياجاتك.
+      على مر السنين، بنينا سمعتنا على قيم قوية: الموثوقية، الشفافية، ورضا العملاء. وهذا ما يجعل تيم كار اليوم من الرواد في مجال تأجير السيارات بدون سائق في مرتيل.
+      اكتشف حرية القيادة على طريقتك مع تيم كار!`
+,
       services_title: "خدماتنا",
       service1_title: "تأجير سيارات يومي",
       service1_text: "نقدم مجموعة واسعة من السيارات للإيجار ليوم واحد أو أكثر، بأسعار تنافسية وشفافية كاملة.",
@@ -738,6 +833,8 @@
       fuel: "ديزل",
       automatic: "أوتوماتيكي",
       essence: "بنزين",
+      reserveNow: "احجز الآن", 
+
       "footer.description": "تيم كار، شريكك الموثوق لتأجير السيارات في مرتيل و تطوان. سيارات بحالة جيدة وأسعار معقولة وخدمة عملاء على مدار 24 ساعة. احجز بسهولة، مع خدمة التوصيل إلى المطار مجانًا",
       "footer.contact": "تواصل",
       "footer.addressLabel": "العنوان:",
@@ -749,7 +846,6 @@
       "footer.hoursLabel": "ساعات العمل:",
       "footer.servicesTitle": "خدماتنا",
       "footer.service1": "توصيل واستلام من المطار",
-      "footer.service2": "سائق خاص",
       "footer.service3": "إكسسوارات إضافية (مقعد طفل...)",
       "footer.service4": "حجز سهل عبر الإنترنت",
       "footer.service5": "دعم 24/24",
@@ -762,6 +858,8 @@
       "carousel.phrase1": "🚗 تأجير سيارات يومي – بأسعار لا تقارن!",
       "carousel.phrase2": "✈️ التوصيل إلى المطار متاح عند الطلب",
       "carousel.phrase3": "🕒 تأجير طويل الأمد – مرونة كاملة",
+      "contact.title" : "اتصل بنا",
+      "title.localisation" : "احجز الآن",
      carsData: [
       { img: "scala1.webp", title: "سكودا سكالا", text: "تصميم راقٍ وتقنية ذكية لراحة قصوى.", price: "ابتداءً من 39 €"},
       { img: "crossland.png", title: "أوبل كروس لاند", text: "متعددة الاستخدامات وواسعة — مثالية للعائلات.", price: "ابتداءً من 37 €"},
@@ -769,12 +867,33 @@
       { img: "OPEL CORSA.jpg", title: "أوبل كورسا", text: "أنيقة وديناميكية — مناسبة لكل تنقلاتك اليومية.", price: "ابتداءً من 30 €"},
       { img: "Opel-Corsa1.webp", title: "أوبل كورسا", text: "راحة في المدينة وكفاءة على الطريق — خيار ذكي.", price: "ابتداءً من 27 €"},
       { img: "peugeot-208.png", title: "بيجو 208", text: "لمسة رياضية مع تصميم عصري وجريء.", price: "ابتداءً من 30 €"}
-    ]
+    ],
+      bookingForm: {
+      title: "الحجز",
+      namePlaceholder: "الاسم الكامل",
+      departurePlaceholder: "مكان الانطلاق",
+      returnPlaceholder: "مكان العودة",
+      contactPlaceholder: "رقم الهاتف أو البريد الإلكتروني",
+      messagePlaceholder: "رسالة (اختياري)",
+      submitButton: "إرسال",
+      successMessage: "تم إرسال الحجز بنجاح!"
+    }
+
     },
     de: {
       nav_services: "Dienstleistungen",nav_cars: "Unsere Autos",nav_contact: "Kontakt",nav_about: "Über uns",big_title: "TeamCar Autovermietung",
       services: "Dienstleistungen", cars: "Unsere Autos", contact: "Kontakt", about_title: "Über uns",
-      about_text: "Allogio Auto ist ein Autovermietungsunternehmen im Norden Marokkos, in einer touristischen Stadt am Meer, in der Nähe vieler beliebter Reiseziele. Wir bieten flexible, günstige und zuverlässige Dienstleistungen an.",
+      about_text: `Team Car – Einfacher, flexibler und zuverlässiger Autoverleih in Martil
+      Gegründet im Jahr 2012 von einem Team junger, leidenschaftlicher Unternehmer, entstand Team Car mit einer klaren Mission: die Erfahrung des Autoverleihs zu vereinfachen und zu verbessern. Seit über 10 Jahren bieten wir flexible, günstige und zuverlässige Mobilitätslösungen an.
+      Egal ob Sie Tourist sind, der die wunderschönen Landschaften der Region entdecken möchte, oder ein Einwohner, der eine praktische Transportlösung sucht – wir bieten Ihnen eine moderne und gut gewartete Fahrzeugflotte, von sparsamen Stadtautos bis zu geräumigen SUVs.
+      Warum Team Car wählen?
+      ✅ Große Auswahl an Fahrzeugen: Neue, zuverlässige und gepflegte Modelle.
+      ✅ Wettbewerbsfähige Preise: Flexible Angebote für jedes Budget.
+      ✅ Einfache Buchung: Schnell und sicher, online oder direkt in der Agentur.
+      ✅ Persönlicher Service: Ein lokales Team, das Ihnen individuell zur Seite steht.
+      Im Laufe der Jahre haben wir unseren Ruf auf starken Werten aufgebaut: Zuverlässigkeit, Transparenz und Kundenzufriedenheit. Deshalb ist Team Car heute einer der führenden Anbieter für Mietwagen ohne Fahrer in Martil.
+      Entdecken Sie die Freiheit, in Ihrem eigenen Tempo zu fahren – mit Team Car!`,
+
       services_title: "Unsere Dienstleistungen",
       service1_title: "Tägliche Autovermietung",
       service1_text: "Wir bieten eine große Auswahl an Fahrzeugen zur Miete für einen oder mehrere Tage – zu wettbewerbsfähigen Preisen und voller Transparenz.",
@@ -786,7 +905,9 @@
       fuel: "Diesel",
       automatic: "Automatik",
       essence: "Benzin",
-      "footer.description": "TEAM CAR – Ihr vertrauensvoller Partner für Autovermietung in Martil und Tétouan. Gut gewartete Autos, günstige Preise und Kundenservice rund um die Uhr. Einfach buchen mit kostenfreier Lieferung zum Flughafen.",
+      reserveNow: "Jetzt buchen",
+
+      "footer.description": "TeamCar – Ihr vertrauensvoller Partner für Autovermietung in Martil und Tétouan. Gut gewartete Autos, günstige Preise und Kundenservice rund um die Uhr. Einfach buchen mit kostenfreier Lieferung zum Flughafen.",
       "footer.contact": "Kontakt",
       "footer.addressLabel": "Adresse:",
       "footer.phoneLabel": "Telefon:",
@@ -796,7 +917,6 @@
       "footer.hoursLabel": "Öffnungszeiten:",
       "footer.servicesTitle": "Unsere Dienstleistungen",
       "footer.service1": "Lieferung und Abholung am Flughafen",
-      "footer.service2": "Privatfahrer",
       "footer.service3": "Zusätzliche Ausstattung (Kindersitz usw.)",
       "footer.service4": "Einfache Online-Buchung",
       "footer.service5": "24/7 Unterstützung",
@@ -809,6 +929,8 @@
       "carousel.phrase1": "🚗 Autovermietung pro Tag – Unschlagbare Preise!",
       "carousel.phrase2": "✈️ Lieferung zum Flughafen auf Anfrage verfügbar",
       "carousel.phrase3": "🕒 Langzeitmiete – Höchste Flexibilität",
+      "contact.title" : "Kontaktieren Sie uns",
+      "title.localisation" : "Standort",
       carsData: [
         {img: "scala1.webp", title: "Skoda Scala", text: "Raffiniertes Design und intelligente Technologie für maximalen Komfort.", price: "Ab 39 €"},
         {img: "crossland.png", title: "Opel Crossland", text: "Vielseitig und geräumig – perfekt für Familienabenteuer.", price: "Ab 37 €"},
@@ -816,12 +938,32 @@
         {img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Elegant, dynamisch und bereit für den Alltag.", price: "Ab 30 €" },
         {img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Stadttauglicher Komfort und effizientes Fahren – eine clevere Wahl.", price: "Ab 27 €"},
         {img: "peugeot-208.png", title: "Peugeot-208", text: "Sportlicher Touch mit mutigem, modernem Design.", price: "Ab 30 €"}
-    ]
+    ],
+      bookingForm: {
+      title: "Reservierung",
+      namePlaceholder: "Vollständiger Name",
+      departurePlaceholder: "Abfahrtsort",
+      returnPlaceholder: "Rückgabeort",
+      contactPlaceholder: "Telefon oder E-Mail",
+      messagePlaceholder: "Nachricht (optional)",
+      submitButton: "Senden",
+      successMessage: "Reservierung erfolgreich gesendet!"
+    }
+
     },
     it: {
       nav_services: "Servizi",nav_cars: "Le Nostre Auto",nav_contact: "Contatto",nav_about: "Chi Siamo",big_title: "Noleggio Auto TeamCar",
       services: "Servizi",cars: "Le Nostre Auto",contact: "Contatto",about_title: "Chi siamo",
-      about_text: "Allogio Auto è un'azienda di autonoleggio situata nel nord del Marocco, in una città turistica vicino al mare e circondata da numerose destinazioni rinomate. Offriamo servizi flessibili, convenienti e affidabili.",
+      about_text: `Team Car – Simple, flexible, and reliable car rental in Martil
+      Founded in 2012 by a team of passionate young entrepreneurs, Team Car was born with a clear ambition: to simplify and enhance the car rental experience. For over 10 years, we have been committed to offering flexible, affordable, and reliable mobility solutions.
+      Whether you're a tourist eager to explore the region's stunning landscapes or a resident looking for a convenient transport solution, we offer a modern and well-maintained fleet, from economical city cars to spacious SUVs.
+      Why choose Team Car?
+      ✅ Wide vehicle selection: Recent, reliable, and carefully maintained models.
+      ✅ Competitive prices: Flexible offers for every budget.
+      ✅ Easy booking: Quick and secure, online or directly at the agency.
+      ✅ Personalized service: A local team ready to assist with tailored support.
+      Over the years, we’ve built our reputation on strong values: reliability, transparency, and customer satisfaction. That’s what makes Team Car one of the leading car rental companies without driver in Martil today.
+      Discover the freedom to drive at your own pace with Team Car!`,
       services_title: "I Nostri Servizi",
       service1_title: "Noleggio Auto Giornaliero",
       service1_text: "Offriamo un'ampia gamma di veicoli a noleggio per uno o più giorni, con tariffe competitive e totale trasparenza.",
@@ -833,7 +975,9 @@
       fuel: "Diesel",
       automatic: "Automatica",
       essence: "Benzina",
-      "footer.description": "TEAM CAR, il tuo partner di fiducia per il noleggio auto a Martil e Tetouan. Auto ben tenute, prezzi accessibili e servizio clienti 24/24. Prenota con facilità, con consegna gratuita in aeroporto",
+      reserveNow: "Prenota ora",
+      
+      "footer.description": "TeamCar, il tuo partner di fiducia per il noleggio auto a Martil e Tetouan. Auto ben tenute, prezzi accessibili e servizio clienti 24/24. Prenota con facilità, con consegna gratuita in aeroporto",
       "footer.contact": "Contatto",
       "footer.addressLabel": "Indirizzo:",
       "footer.phoneLabel": "Telefono:",
@@ -843,7 +987,6 @@
       "footer.hoursLabel": "Orari:",
       "footer.servicesTitle": "I nostri servizi",
       "footer.service1": "Consegna e ritiro in aeroporto",
-      "footer.service2": "Autista privato",
       "footer.service3": "Accessori extra (seggiolino, ecc.)",
       "footer.service4": "Prenotazione facile online",
       "footer.service5": "Assistenza 24 ore su 24",
@@ -856,6 +999,9 @@
       "carousel.phrase1": "🚗 Noleggio auto giornaliero – Prezzi imbattibili!",
       "carousel.phrase2": "✈️ Consegna in aeroporto disponibile su richiesta",
       "carousel.phrase3": "🕒 Noleggio a lungo termine – Massima flessibilità",
+      "contact.title" : "Contattaci",
+      "title.localisation" : "Posizione",
+      
        carsData: [
         { img: "scala1.webp", title: "Skoda Scala", text: "Design raffinato e tecnologie intelligenti per il massimo comfort.", price: "Prezzo da 39 €"},
         { img: "crossland.png", title: "Opel Crossland", text: "Versatile e spaziosa — perfetta per le avventure in famiglia.", price: "Prezzo da 37 €"},
@@ -863,30 +1009,51 @@
         { img: "OPEL CORSA.jpg", title: "Opel Corsa", text: "Elegante, dinamica e pronta per ogni spostamento quotidiano.", price: "Prezzo da 30 €"},
         { img: "Opel-Corsa1.webp", title: "Opel-Corsa", text: "Comfort urbano ed efficienza — una scelta intelligente.", price: "Prezzo da 27 €" },
         { img: "peugeot-208.png", title: "Peugeot-208", text: "Un tocco sportivo con un design moderno e audace.", price: "Prezzo da 30 €" }
-    ]
+    ],
+      bookingForm: {
+      title: "Prenotazione",
+      namePlaceholder: "Nome completo",
+      departurePlaceholder: "Luogo di partenza",
+      returnPlaceholder: "Luogo di ritorno",
+      contactPlaceholder: "Telefono o Email",
+      messagePlaceholder: "Messaggio (facoltativo)",
+      submitButton: "Invia",
+      successMessage: "Prenotazione inviata con successo!"
+    }
+
+   
+
+
     }
   };
 
   // 🈯 CAMBIO LINGUA
-  function changeLanguage(langCode, el = null, event = null) {
-    if (event) event.preventDefault();
-    if (el) {
-      const flag = el.querySelector("img")?.src;
-      const label = el.textContent.trim();
-      document.getElementById("langFlag").src = flag;
-      document.getElementById("langFlag").alt = langCode.toUpperCase();
-      document.getElementById("langCode").textContent = label;
-    }
+ function changeLanguage(langCode, el = null, event = null) {
+  if (event) event.preventDefault();
 
-    document.querySelectorAll("[data-i18n]").forEach(elm => {
-      const key = elm.getAttribute("data-i18n");
-      if (translations[langCode] && translations[langCode][key]) {
-        elm.innerText = translations[langCode][key];
-      }
-    });
+  // ✅ Salva la lingua scelta in localStorage
+  localStorage.setItem("lang", langCode);
 
-    renderCars(langCode);
+  if (el) {
+    const flag = el.querySelector("img")?.src;
+    const label = el.textContent.trim();
+    document.getElementById("langFlag").src = flag;
+    document.getElementById("langFlag").alt = langCode.toUpperCase();
+    document.getElementById("langCode").textContent = label;
   }
+
+  // Cambia tutti i testi visibili del sito
+  document.querySelectorAll("[data-i18n]").forEach(elm => {
+    const key = elm.getAttribute("data-i18n");
+    if (translations[langCode] && translations[langCode][key]) {
+      elm.innerText = translations[langCode][key];
+    }
+  });
+
+  // Rendi le card auto nella nuova lingua
+  renderCars(langCode);
+}
+
 
   
   // 🚘 RENDER AUTO
@@ -933,7 +1100,7 @@
               <p class="card-prix">${car.price || ""}</p>
               ${customIcons}
               <div class="d-flex justify-content-between align-items-center mt-2">
-                <button class="btn btn-reserve" onclick="openBookingModal('${car.title}')">Réserver Maintenant</button>
+                <button class="btn btn-reserve" onclick="openBookingModal('${car.title}')">${t.reserveNow}</button>
                 <button class="btn btn-share" onclick="shareCar('${car.title}', '${window.location.href}')">
                   <i class="bi bi-share-fill"></i>
                 </button>
@@ -956,34 +1123,43 @@
   // 📅 MODAL PRENOTAZIONE
   let selectedCarName = "";
 
-
-
 function openBookingModal(carName) {
   selectedCarName = carName;
-  const existingModal = document.getElementById('bookingModal');
+
+  // Rimuove un eventuale modal già presente
+  const existingModal = document.getElementById("bookingModal");
   if (existingModal) existingModal.remove();
 
+  // Recupera la lingua corrente da localStorage, default a "fr"
+  const lang = localStorage.getItem("lang") || "fr";
+
+  // Ottieni i testi della lingua selezionata
+  const formText = translations[lang] && translations[lang].bookingForm
+    ? translations[lang].bookingForm
+    : translations["fr"].bookingForm;
+
+  // Genera HTML del modulo
   const formHtml = `
     <div id="bookingModal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content neumorphic">
-
-         <form id="reservationForm" action="https://formsubmit.co/teamcarmt@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Nouvelle réservation">
-          <input type="hidden" name="_next" value="https://halaslama.github.io/teamcar/merci.html">
-          <input type="hidden" name="Auto" value="${carName}">
+          <form id="reservationForm" action="https://formsubmit.co/teamcarmt@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="${formText.title}">
+            <input type="hidden" name="_next" value="https://halaslama.github.io/teamcar/merci.html">
+            <input type="hidden" name="Car" value="${carName}">
 
             <div class="modal-header">
-              <h5 class="modal-title" style= "color: black; ">Reservation</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+              <h5 class="modal-title" style="color: black;">${formText.title}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body neumorphic-card">
               <div class="form-group">
-                <input type="text" name="Nom et prénom" class="neumorphic-input form-control" required placeholder="Nom et prénom">
+                <input type="text" name="full_name" class="neumorphic-input form-control" required placeholder="${formText.namePlaceholder}">
               </div>
-              
+
               <div class="form-group">
-                <input list="locations" name="Point de départ" class="neumorphic-input form-control" required placeholder="Écrivez ou choisissez votre point de départ">
+                <input list="locations" name="departure_location" class="neumorphic-input form-control" required placeholder="${formText.departurePlaceholder}">
                 <datalist id="locations">
                   <option value="Martil"></option>
                   <option value="Mdiq"></option>
@@ -994,55 +1170,55 @@ function openBookingModal(carName) {
                   <option value="Tanger"></option>
                   <option value="Tanger Aeroport"></option>
                   <option value="Tanger Med"></option>
-                  <option value="chaouen"></option>
+                  <option value="Chaouen"></option>
                 </datalist>
               </div>
 
               <div class="form-group">
-                <input list="locations" name="Lieu de retour" class="neumorphic-input form-control" required placeholder="Écrivez ou choisissez votre point d'arrivée">
+                <input list="locations" name="return_location" class="neumorphic-input form-control" required placeholder="${formText.returnPlaceholder}">
               </div>
 
               <div class="row">
                 <div class="col-6">
-                  <input type="date" name="Date de départ" class="neumorphic-input form-control" required>
+                  <input type="date" name="start_date" class="neumorphic-input form-control" required>
                 </div>
                 <div class="col-6">
-                  <input type="time" name="Heure de départ" class="neumorphic-input form-control" required>
+                  <input type="time" name="start_time" class="neumorphic-input form-control" required>
                 </div>
               </div>
 
               <div class="row mt-2">
                 <div class="col-6">
-                  <input type="date" name="Date de retour" class="neumorphic-input form-control" required>
+                  <input type="date" name="end_date" class="neumorphic-input form-control" required>
                 </div>
                 <div class="col-6">
-                  <input type="time" name="Heure de retour" class="neumorphic-input form-control" required>
+                  <input type="time" name="end_time" class="neumorphic-input form-control" required>
                 </div>
               </div>
 
               <div class="form-group mt-2">
-                <input type="text" name="Contact" class="neumorphic-input form-control" required placeholder="Contact par téléphone ou par email">
+                <input type="text" name="contact_info" class="neumorphic-input form-control" required placeholder="${formText.contactPlaceholder}">
               </div>
 
               <div class="form-group">
-                <textarea name="Message" class="neumorphic-input form-control" rows="2" placeholder="Message facultatif"></textarea>
+                <textarea name="message" class="neumorphic-input form-control" rows="2" placeholder="${formText.messagePlaceholder}"></textarea>
               </div>
             </div>
+
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success">Reservez Maintenant</button>
+              <button type="submit" class="btn btn-success">${formText.submitButton}</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-    <div id="successMessage" class="alert alert-success mt-3 text-center" style="display: none;">
-      ✅ Prenotazione inviata con successo!
-    </div>
   `;
 
-  document.body.insertAdjacentHTML('beforeend', formHtml);
+  // Inserisci il form nel body
+  document.body.insertAdjacentHTML("beforeend", formHtml);
 
-  const modal = new bootstrap.Modal(document.getElementById('bookingModal'));
+  // Mostra il modal
+  const modal = new bootstrap.Modal(document.getElementById("bookingModal"));
   modal.show();
 }
 
