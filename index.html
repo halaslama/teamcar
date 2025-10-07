@@ -107,21 +107,51 @@
   }
  
   /* Banner */
-  .main-banner img.banner-image {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    transition: filter 0.5s ease;
+ /* Banner responsive */
+.main-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-banner .banner-image {
+  width: 100%;
+  height: min(75vh, 700px);   /* desktop/laptop */
+  object-fit: cover;
+  object-position: 62% 50%;   /* focus leggermente a destra sulla Scala */
+  display: block;
+  transition: filter 0.5s ease;
+}
+
+.main-banner .banner-image:hover {
+  filter: brightness(1.3) drop-shadow(0 0 20px #fff);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .main-banner .banner-image {
+    height: 60vh;             /* niente px fissi su mobile */
+    object-position: 68% 50%; /* centra meglio l’auto su schermi stretti */
   }
-  .main-banner img.banner-image:hover {
-    filter: brightness(1.3) drop-shadow(0 0 20px #fff);
+}
+/* Desktop/Laptop */
+@media (min-width: 992px) {
+  .main-banner .banner-image {
+    /* più alto su desktop per mostrare più parte alta */
+    height: clamp(520px, 80vh, 900px);
+    /* x% (orizzontale), y% (verticale) → alza il focus verso l'alto */
+    object-position: 62% 38%;
   }
-  .hero {
-    background: url('grande-photo-banniere.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 120px 0;
-    text-shadow: 1px 1px 4px black;
+}
+
+/* Schermi molto grandi */
+@media (min-width: 1440px) {
+  .main-banner .banner-image {
+    height: clamp(620px, 85vh, 1000px);
+    object-position: 62% 34%; /* ancora un po’ più su */
   }
+}
+
   .section-title {
     margin-top: 60px;
   }
@@ -387,19 +417,21 @@
 <section>
   <!-- Banner -->
   <div class="main-banner">
-    <img src="banner2.png" alt="Banner Image" class="banner-image">   
+    <img src="banner3.png" alt="Banner Image" class="banner-image">
+  </div> <!-- <-- chiusura mancante prima -->
 
- <!-- Modal pour agrandir l'image -->
-  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-body p-0">
-          <img src="" id="modalImage" class="img-fluid w-100" alt="Aperçu de la voiture">
-        </div>
+  <!-- Modal pour agrandir l'image -->
+</section>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <img src="" id="modalImage" class="img-fluid w-100" alt="Aperçu de la voiture">
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <br>
 <br>
@@ -1267,6 +1299,7 @@ function openBookingModal(carName) {
 
 </body>
 </html>
+
 
 
 
