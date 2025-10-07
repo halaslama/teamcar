@@ -4,9 +4,12 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Head (facoltativo ma consigliato per social) -->
-  <meta property="og:description" content="">
-  <meta name="twitter:description" content="">
+ <meta name="description" content="Location de voitures à Martil et nord du Maroc. Livraison aéroport, réservation simple, tarifs clairs. Véhicules récents et assistance 24/7 – TeamCar.">
+<!-- <meta name="description" content="Car rental in Martil and northern Morocco. Airport delivery, easy booking, transparent prices. Newer cars and 24/7 support – TeamCar."> -->
+<!-- <meta name="description" content="Alquiler de coches en Martil y norte de Marruecos. Entrega en aeropuerto, reserva fácil, precios claros. Coches recientes y soporte 24/7 – TeamCar."> -->
+<!-- <meta name="description" content="تأجير سيارات في مرتيل وشمال المغرب. توصيل للمطار، حجز سهل وأسعار واضحة. سيارات حديثة ودعم 24/7 – TeamCar."> -->
+<!-- <meta name="description" content="Autovermietung in Martil und Nordmarokko. Flughafenzustellung, einfache Buchung, transparente Preise. Neuwertige Autos & 24/7-Support – TeamCar."> -->
+<!-- <meta name="description" content="Noleggio auto a Martil e nel nord del Marocco. Consegna in aeroporto, prenotazione facile, prezzi chiari. Auto recenti e assistenza 24/7 – TeamCar."> -->
   <title>TeamCar - Location de Voitures</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -636,39 +639,6 @@
 </footer>
 
 <script>
-  // descrizioni brevi (≈120–160 caratteri)
-const metaDesc = {
-  fr: "Location de voitures à Martil et nord du Maroc. Livraison aéroport, réservation simple, tarifs clairs. Véhicules récents, assistance 24/7. TeamCar.",
-  en: "Car rental in Martil and northern Morocco. Airport delivery, easy booking, transparent prices. Newer cars and 24/7 support. TeamCar.",
-  es: "Alquiler de coches en Martil y norte de Marruecos. Entrega en aeropuerto, reserva fácil, precios claros. Coches recientes y soporte 24/7. TeamCar.",
-  ar: "تأجير سيارات في مرتيل وشمال المغرب. توصيل للمطار، حجز سهل وأسعار واضحة. سيارات حديثة ودعم 24/7. TeamCar.",
-  de: "Autovermietung in Martil und Nordmarokko. Flughafenzustellung, einfache Buchung, transparente Preise. Neuwertige Autos & 24/7-Support. TeamCar.",
-  it: "Noleggio auto a Martil e nord Marocco. Consegna in aeroporto, prenotazione facile, prezzi chiari. Auto recenti e assistenza 24/7. TeamCar."
-};
-
-function setMetaDescription(lang) {
-  const text = metaDesc[lang] || metaDesc.it;
-
-  // description
-  let d = document.querySelector('meta[name="description"]');
-  if (!d) { d = document.createElement('meta'); d.setAttribute('name','description'); document.head.appendChild(d); }
-  d.setAttribute('content', text);
-
-  // og:description / twitter:description
-  const pairs = [
-    ['property','og:description'],
-    ['name','twitter:description']
-  ];
-  pairs.forEach(([attr, name]) => {
-    let m = document.querySelector(`meta[${attr}="${name}"]`);
-    if (!m) { m = document.createElement('meta'); m.setAttribute(attr, name); document.head.appendChild(m); }
-    m.setAttribute('content', text);
-  });
-}
-
-// chiamala al load e nel tuo changeLanguage(...)
-setMetaDescription(currentLang); // es. 'fr'
-
   // 🌐 TRADUZIONI MULTILINGUA
   const translations = {
     fr:{
@@ -1346,6 +1316,7 @@ function openBookingModal(carName) {
 
 </body>
 </html>
+
 
 
 
