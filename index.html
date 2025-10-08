@@ -43,8 +43,10 @@
   position: sticky; 
   top: 0; 
   z-index: 1040; 
+   height: auto; 
 }
   .navbar-collapse {
+    padding-bottom: 1rem;
     position: absolute;
     top: 100%;
     left: 0; right: 0;
@@ -118,6 +120,9 @@
   .language-switcher {
     flex-wrap: wrap;
   }
+    @media (max-width: 991.98px) {
+  .navbar { position: relative; z-index: 1040; }
+      
   .language-switcher .btn {
     margin: 2px;
     font-size: 0.85rem;
@@ -1355,6 +1360,7 @@ function openBookingModal(carName) {
 
 </body>
 </html>
+
 
 
 
