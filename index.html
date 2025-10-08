@@ -1149,9 +1149,19 @@
               ${customIcons}
               <div class="d-flex justify-content-between align-items-center mt-2">
                 <button class="btn btn-reserve" onclick="openBookingModal('${car.title}')">${t.reserveNow}</button>
-                <button class="btn btn-share" onclick="shareCar('${car.title}', '${window.location.href}')">
-                  <i class="bi bi-share-fill"></i>
-                </button>
+                <button
+  type="button"
+  class="btn btn-share"
+  onclick="shareCar('${car.title}', '${window.location.href}')"
+  aria-label="${t.shareAria ? t.shareAria.replace('{car}', car.title) : 'Partager ' + car.title}"
+  title="${t.shareTooltip ? t.shareTooltip.replace('{car}', car.title) : 'Partager ' + car.title}"
+>
+  <i class="bi bi-share-fill" aria-hidden="true"></i>
+  <span class="visually-hidden">
+    ${t.shareText ? t.shareText.replace('{car}', car.title) : 'Partager ' + car.title}
+  </span>
+</button>
+
               </div>
             </div>
           </div>
@@ -1315,6 +1325,7 @@ function openBookingModal(carName) {
 
 </body>
 </html>
+
 
 
 
