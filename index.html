@@ -39,9 +39,22 @@
   }
 
   /*Navbar */
-  .navbar {  
-    height: 90px; 
-  } 
+ .navbar { 
+  position: sticky; 
+  top: 0; 
+  z-index: 1040; 
+}
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background-color: #212529;                 /* stesso colore della navbar (bg-dark) */
+    padding: .75rem 1rem;
+    z-index: 1045;                              /* sopra al banner */
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;                           /* scroll se è lungo */
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
   .navbar-brand img {
     height: 100px;
   }
@@ -59,6 +72,7 @@
     transform: translate(-50%, -50%);
   }
   .navbar-nav .nav-link {
+    padding: .6rem 0;   
     color: #d4a762 !important;
   }
 
@@ -1341,6 +1355,7 @@ function openBookingModal(carName) {
 
 </body>
 </html>
+
 
 
 
