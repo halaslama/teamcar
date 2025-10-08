@@ -555,15 +555,24 @@
   <!-- Map Section -->
 <section id="map" class="py-5">
   <div class="container">
-    <h3 class="text-center mb-4" style="color: #d4a762;" data-i18n="title.localisation">📍 Localisation</h3>
-    <div class="ratio ratio-16x9">
-     <iframe 
-        src="https://www.google.com/maps?q=N%207,%20kaysaryat%20Rive%20D'or,%20Av.%20Abderahman%20III,%20Martil&output=embed" 
-        width="100%" height="400" style="border:0; border-radius: 1%;" allowfullscreen="" loading="lazy">
+    <h3 id="map-heading" class="text-center mb-4" style="color:#d4a762;" data-i18n="title.localisation">
+      📍 Localisation
+    </h3>
+    <div class="ratio ratio-16x9" style="border-radius:1%; overflow:hidden;">
+      <iframe
+        id="map-embed"
+        src="https://www.google.com/maps?q=N%207,%20kaysaryat%20Rive%20D%27or,%20Av.%20Abderahman%20III,%20Martil&output=embed"
+        style="border:0; width:100%; height:100%;"
+        loading="lazy"
+        allowfullscreen
+        aria-labelledby="map-heading"
+        title="Mappa: sede TeamCar a Martil (N 7, kaysaryat Rive D'or, Av. Abderahman III)"
+        referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
   </div>
 </section>
+
  <!-- Whatsap -->
 <a href="https://wa.me/212723930064" class="whatsapp-float" target="_blank" aria-label="Chatta su WhatsApp">
   <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
@@ -1325,6 +1334,7 @@ function openBookingModal(carName) {
 
 </body>
 </html>
+
 
 
 
