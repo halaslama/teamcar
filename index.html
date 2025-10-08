@@ -21,6 +21,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
  <!-- Bootstrap JS bundle (include Popper) – caricato UNA sola volta -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <!-- Bootstrap 5 JS (bundle con Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 <style>
   body {
@@ -129,8 +132,12 @@
 }
 
 /* --- Mobile --- */
-@media (max-width: 768px) {
-  .main-banner { overflow: hidden; }
+@media (max-width: 991.98px) {
+     .main-banner { overflow: hidden; }
+  .navbar-brand img { height: 56px; }   /* <= più piccolo del nav */
+  .navbar-toggler { position: relative; z-index: 3; } /* sopra il logo */
+}
+
 
   .main-banner .banner-image {
     /* usa l’altezza reale del viewport mobile (meglio di vh) */
@@ -1334,6 +1341,7 @@ function openBookingModal(carName) {
 
 </body>
 </html>
+
 
 
 
