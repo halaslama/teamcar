@@ -12,26 +12,24 @@
 
   <title>TeamCar - Location de Voitures</title>
 
-  <!-- Bootstrap 5 CSS (per le classi BS5 come .ratio, ecc.) -->
+  <!-- Bootstrap 5 CSS-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap 4 CSS (dopo, per mantenere l'aspetto che avevi prima) -->
+  <!-- Bootstrap 4 CSS-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Flickity CSS -->
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
-  <!-- Font Awesome (lasciamo entrambe come avevi, ordine invariato per non cambiare icone) -->
+  <!-- Font Awesome (lasciamo entrambe per non cambiare icone) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
-  <!-- jQuery (Bootstrap 5 non lo usa, ma non dà fastidio se lo tieni) -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
   <!-- Flickity JS -->
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-  <!-- Bootstrap 5 JS (UNICO bundle JS: necessario per il collapse con data-bs-*) -->
+  <!-- Bootstrap 5 JS (necessario per il collapse) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
   <!-- Bootstrap Icons -->
@@ -39,98 +37,112 @@
 
 <style>
 
-  body {
-    background-color: #000;     
-    max-width: 100%;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 18px;
-    color: #d4a762;
-    font-family:'Playfair Display';
-  }
-/* --- FIX: il menu non deve essere nascosto dal banner --- */
+ /*BASE*/
+body {
+  background-color: #000;            /* tema scuro */
+  max-width: 100%;
+  overflow-x: hidden;                /* evita scroll orizzontale */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;            /* box model prevedibile */
+  font-size: 18px;
+  color: #d4a762;                    /* oro brand */
+  font-family: 'Playfair Display';   /* font del design */
+}
+
+/*NAVBAR + COLLAPSE FIX*/
 .navbar {
-  /* togli l'altezza fissa: lascia che la navbar cresca quando si apre il menu */
-  height: auto !important;
-  min-height: 90px;         /* mantieni l'altezza minima che volevi */
+  height: auto !important;           /* niente altezza fissa: il collapse può espandersi */
+  min-height: 80px;                  /* mantieni l’altezza minima desiderata */
   position: relative;
-  z-index: 2000;            /* stai sopra a banner e immagini */
+  z-index: 2000;                     /* la navbar sta sopra al banner */
 }
 
-/* il banner resta sotto alla navbar */
-.main-banner {
-  position: relative;
-  z-index: 1;
+.navbar-brand img {                  /* dimensione del logo */
+  height: 100px;
 }
 
-/* su mobile, dai uno sfondo al pannello aperto per leggibilità */
+.navbar-toggler {                    /* bottone hamburger */
+  position: relative;
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler .close-icon {        /* icona custom (se la usi) */
+  font-size: 1.8rem;
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navbar-nav .nav-link {              /* link del menu */
+  color: #d4a762 !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {        /* hover/focus più chiaro */
+  color: #f0c987 !important;
+}
+
+/* Pannello del menu su mobile: sfondo scuro per leggibilità */
 @media (max-width: 991.98px) {
   .navbar-collapse {
-    background: #343a40;       /* stesso scuro della navbar */
+    background: #343a40;
     padding: .75rem 0;
   }
 }
-  .navbar-brand img {
-    height: 100px;
-  }
-  .navbar-toggler {
-    position: relative;
-    border: none;
-    background: transparent;
-  }
-  .navbar-toggler .close-icon {
-    font-size: 1.8rem;
-    color: #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .navbar-nav .nav-link {
-    color: #d4a762 !important;
-  }
 
-  /* colore più chiaro al passaggio del mouse */
-  .navbar-nav .nav-link:hover,
-  .navbar-nav .nav-link:focus {
-    color: #f0c987 !important; 
-  }
+/*LANGUAGE SWITCHER (SELECT)*/
 
-    /* Cambio lingua */
-  .language-switcher {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    margin-left: 15px;
-  }
-  /* Stile del select */
-  .language-switcher select {
-    color: #d4a762;
-    border-color: #d4a762;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-  }
-  /* Personalizzazione del caret (freccia) solo per decorazione */
-  .language-switcher::after {
-    color: black;
-    margin-left: -20px;
-    pointer-events: none;
-  }
-  .form-select option {
-    font-weight: bold;
-  }
-  /* Miglioramenti per il responsive su dispositivi mobili */
-  @media screen and (max-width: 992px) {
+/* Selettore lingua: colori, bordo e caret personalizzati */
+#lang-select.form-select {
+  background-color: rgba(255,255,255,0.06);     /* leggero overlay sul dark */
+  color: #d4a762;                               /* testo oro */
+  border: 1px solid #d4a762;                    /* bordo oro */
+  border-radius: .5rem;                         /* angoli morbidi */
+  padding: .25rem 2rem .25rem .75rem;           /* spazio per la freccia a destra */
+  line-height: 1.25;
+  height: calc(1.5em + .5rem + 2px);
+
+  /* caret oro: override icona di Bootstrap 5 */
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23d4a762'%3E%3Cpath d='M3.2 5.5l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .5rem center;
+  background-size: 16px 12px;
+}
+
+#lang-select.form-select:hover {                 /* bordo evidenziato in hover */
+  border-color: #f0c987;
+}
+
+#lang-select.form-select:focus {                 /* alone dorato in focus */
+  outline: none;
+  border-color: #f0c987;
+  box-shadow: 0 0 0 .2rem rgba(212,167,98,.25);
+}
+
+/* Opzioni nel menu a tendina (supporto dipende dal browser) */
+.navbar .form-select option {
+  background: rgba(255,255,255,0.06); 
+  color: #d4a762;
+}
+
+/* Wrapper usato in passato: lo lascio per compatibilità (non obbligatorio) */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-left: 15px;
+}
+@media screen and (max-width: 992px) {
   .language-switcher {
     margin: 10px 0;
     justify-content: center;
   }
-  }
-  @media screen and (max-width: 576px) {
+}
+@media screen and (max-width: 576px) {
   .language-switcher {
     flex-wrap: wrap;
   }
@@ -139,282 +151,289 @@
     font-size: 0.85rem;
     padding: 4px 8px;
   }
-  }
- 
- /* Banner responsive */
-.main-banner {
-  position: relative;
+}
+
+/*BANNER PRINCIPALE*/
+.main-banner {                          
+  position: relative;                   /* tiene lo z-index locale */
   width: 100%;
   overflow: hidden;
+  z-index: 1;                           /* sta sotto alla navbar */
 }
 
 .main-banner .banner-image {
   width: 100%;
-  height: min(75vh, 700px);   /* base per laptop piccoli / tablet in orizzontale */
+  height: min(75vh, 700px);             /* base per laptop piccoli / tablet orizz. */
   object-fit: cover;
-  object-position: 62% 50%;   /* focus leggermente a destra sulla Scala */
+  object-position: 62% 50%;             /* focus leggermente a destra sulla Scala */
   display: block;
-  transition: filter 0.5s ease;
+  transition: filter 0.5s ease;         /* effetto hover */
 }
 
 .main-banner .banner-image:hover {
   filter: brightness(1.3) drop-shadow(0 0 20px #fff);
 }
 
-/* --- Mobile --- */
+/* Mobile */
 @media (max-width: 768px) {
   .main-banner { overflow: hidden; }
-
   .main-banner .banner-image {
-    /* usa l’altezza reale del viewport mobile (meglio di vh) */
-    height: calc(100svh - var(--nav-h, 72px));
-    max-height: 72svh;            /* evita che diventi troppo alta */
-    object-position: 70% 36%;     /* alza il focus e sposta un po’ a destra */
+    height: calc(100svh - var(--nav-h, 72px));   /* altezza viewport mobile */
+    max-height: 72svh;                           /* evita eccessi */
+    object-position: 70% 36%;                    /* alza il focus e spostalo a destra */
   }
 }
 
-/* --- Tablet --- */
+/* Tablet */
 @media (min-width: 769px) and (max-width: 991px) {
   .main-banner .banner-image {
     height: 70vh;
-    object-position: 64% 42%;     /* mostra più parte alta senza tagliare */
+    object-position: 64% 42%;                   /* più parte alta, meno taglio */
   }
 }
 
-/* --- Desktop/Laptop --- */
+/* Desktop/Laptop */
 @media (min-width: 992px) {
   .main-banner .banner-image {
     height: clamp(520px, 80vh, 900px);
-    object-position: 62% 38%;     /* alza un po’ il focus in verticale */
+    object-position: 62% 38%;
   }
 }
 
-/* --- Schermi molto grandi --- */
+/* Schermi molto grandi */
 @media (min-width: 1440px) {
   .main-banner .banner-image {
     height: clamp(620px, 85vh, 1000px);
-    object-position: 62% 34%;     /* ancora più su per vedere il cofano intero */
+    object-position: 62% 34%;                   /* mostra più cofano */
   }
 }
 
+/*TITOLI SEZIONE*/
+.section-title {                       /* spazio sopra i titoli di sezione */
+  margin-top: 60px;
+}
 
-  .section-title {
-    margin-top: 60px;
-  }
+/*CARDS AUTO*/
+.card {                                /* contenitore card */
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 1px solid #444;
+  border-radius: 1%;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
 
-  /* Cards auto */
-  .card-img-top {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    cursor: pointer;
-  }
-  .card {
-    margin-bottom: 20px;
-    overflow: hidden;
-    border: 1px solid #444;
-    border-radius: 1%;
-    box-shadow: 0 0 10px rgba(255,255,255,0.1);
-  }
-  .card-img-top {
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-  .card:hover .card-img-top {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-  }
-  .card-icons {
-    max-width: 100px;                    
-  }     
+.card-img-top {                        /* immagine card */
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-  .btn-reserve {
-    background-color:#343a40;
-    color: white;
-    border: none;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 8px;
-  }
-  .btn-reserve:hover {
-    background-color: rgb(155, 155, 150);
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgb(155, 155, 151);
-  }
-   
-  /* Formule */
-  .neumorphic {
-    background: #e0e5ec;
-    border-radius: 10px;
-    box-shadow: 10px 10px 20px #74777b;
-    padding: 30px;
-    display: block; margin: 0 auto;
-    box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
-  }
-  /* Input, Textarea e Select  (fori) */
-  .neumorphic-input {
-    background: #e0e5ec;
-    border: none;
-    border-radius: 12px;
-    box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    width: 100%;
-    transition: all 0.5s ease-in-out;
-  }
-  /* Dentro */
-  .neumorphic-input:focus {
-    outline: none;
-    box-shadow: inset 4px 4px 8px  rgb(107, 107, 105), inset -4px -4px 8px #ffffff;
-  }
-  /* Bottone */
-  .btn.btn-success {
-    background: #e0e5ec;
-    color: black;
-    border: none;
-    border-radius: 12px;
-    box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
-    padding: 12px 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease-in-out; 
-  }
-  .btn.btn-success.btn-lg:hover {
-    transform: translateY(-5px);
-    transition: transform 0.3s ease;
-  }   
-  .neumorphic-button:hover {
-    box-shadow: 4px 4px 10px #a3b1c5, -4px -4px 10px #ffffff;
-    transform: scale(1.05);
-  }
-  .neumorphic-button:active {
-    box-shadow: inset 4px 4px 8px #a3b1c5, inset -4px -4px 8px #ffffff;
-  }
-  /* carousel */
-  .carousel-container {
-    margin: 3rem auto; /* o 0 auto; */
-    height: 40rem;
-    width: 65rem;
-    background-size: 100% 100%;
-    overflow: hidden;
-    box-shadow: 0 0 20px 10px rgb(239, 216, 2);
-    animation: slider 30s linear infinite;
-    display: block;
-    border-radius: 1%;
-  }
+.card:hover .card-img-top {            /* effetto hover sull’immagine */
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
 
-  @keyframes slider {
-    0% {background-image: url(mdiq2.jpg);}
-    12.5% {background-image: url(tetouan1.jpg);}
-    25% {background-image: url(aeroport\ tetouan.jpg);}
-    37.5% {background-image: url(tanger1.jpg);}
-    50% {background-image: url(aeroport\ tanger1.jpg);}
-    62.5% {background-image: url(chefchaoun.jpg);}
-    75% {background-image: url(tanger3.jpg);}
-    87.5%{background-image: url(gare\ tanger1.jpg);}
-    100% {background-image: url(mdiq2.jpg);}
-  }
-  /* Media query per dispositivi mobili */
-  @media screen and (max-width: 768px) {
+.card-icons {                          /* dimensione icone social/contatto */
+  max-width: 100px;
+}
+
+/*BOTTONI CUSTOM*/
+.btn-reserve {
+  background-color: #343a40;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+.btn-reserve:hover {
+  background-color: rgb(155, 155, 150);
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgb(155, 155, 151);
+}
+
+/*FORM STILE NEUMORPHIC*/
+.neumorphic {
+  background: #e0e5ec;
+  border-radius: 10px;
+  box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
+  padding: 30px;
+  display: block;
+  margin: 0 auto;
+}
+
+.neumorphic-input {                    /* input/textarea/select */
+  background: #e0e5ec;
+  border: none;
+  border-radius: 12px;
+  box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.neumorphic-input:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 8px rgb(107, 107, 105), inset -4px -4px 8px #ffffff;
+}
+
+.btn.btn-success {                     /* bottone prenotazione stile neumorphic */
+  background: #e0e5ec;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  box-shadow: inset -4px -4px 8px rgb(107, 107, 105), inset 4px 4px 8px #ffffff;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn.btn-success:hover {               /* hover generalizzato (niente .btn-lg) */
+  transform: translateY(-5px);
+}
+
+/*CAROUSEL HERO DESTINAZIONI*/
+.carousel-container {
+  margin: 3rem auto;
+  height: 40rem;
+  width: 65rem;
+  background-size: 100% 100%;
+  overflow: hidden;
+  box-shadow: 0 0 20px 10px rgb(239, 216, 2);   /* glow dorato */
+  animation: slider 30s linear infinite;
+  display: block;
+  border-radius: 1%;
+}
+
+@keyframes slider {
+  0%   { background-image: url(mdiq2.jpg); }
+  12.5%{ background-image: url(tetouan1.jpg); }
+  25%  { background-image: url(aeroport\ tetouan.jpg); } /* spazi escapati */
+  37.5%{ background-image: url(tanger1.jpg); }
+  50%  { background-image: url(aeroport\ tanger1.jpg); }
+  62.5%{ background-image: url(chefchaoun.jpg); }
+  75%  { background-image: url(tanger3.jpg); }
+  87.5%{ background-image: url(gare\ tanger1.jpg); }
+  100% { background-image: url(mdiq2.jpg); }
+}
+
+/* Responsive carousel */
+@media screen and (max-width: 768px) {
   .carousel-container {
     margin: 2rem auto;
     height: 20rem;
     width: 90%;
     max-width: 30rem;
   }
-  }
-  /* Per telefoni più piccoli */
-  @media screen and (max-width: 480px) {
+}
+@media screen and (max-width: 480px) {
   .carousel-container {
     margin: 1rem auto;
     height: 15rem;
   }
-  }
-  .text-carousel-container {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#000;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-align: center;
-  }
+}
 
-  .text-carousel {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .carousel-phrase {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 9s ease;
-  }
-  .carousel-phrase.active {
-    opacity: 1;
-  }
-  .carousel-section {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
- 
-  /* mapa */
-  .iframe{
-    border-radius: 1%;
-  }
-  /* whatsapp */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 9999;
-    background-color: transparent;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease-in-out;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
-    /*botone per sopra */
-    #back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(to right, #2c2c2c, #a49b8d);
-      border: none;
-      border-radius: 5px; /* Puoi mettere 0 se lo vuoi completamente quadrato */
-      cursor: pointer;
-      font-size: 24px;
-      color: white;
-      display: none;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-    #back-to-top:hover {
-      color: black;
-    }
-    .container-section-title{
-      text-align:left;
-    }
+/*CAROUSEL TESTI PROMO*/
+.text-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#000;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+}
 
-    .footer{
-      width: 100%;
-      height: 40px;
-      background-color: #000;
-      color: white;
-      text-align: center;
-      padding-top: 5px;
-    }
+.text-carousel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-phrase {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 9s ease;
+}
+
+.carousel-phrase.active {
+  opacity: 1;
+}
+
+.carousel-section {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/*MAPPA*/
+.iframe {
+  border-radius: 1%;
+}
+
+/*WHATSAPP FLOAT*/
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/*BOTTONE "BACK TO TOP"*/
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(to right, #2c2c2c, #a49b8d);
+  border: none;
+  border-radius: 5px;                  /* metti 0 se lo vuoi quadrato */
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+  display: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#back-to-top:hover {
+  color: #000;
+}
+
+/*UTILITÀ*/
+.container-section-title {
+  text-align: left;
+}
+
+/*FOOTER*/
+.footer {
+  width: 100%;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding-top: 5px;
+}
 
 </style>
 </head>
@@ -1369,6 +1388,7 @@ function openBookingModal(carName) {
 
 </body>
 </html>
+
 
 
 
